@@ -89,48 +89,6 @@
 	     62. Widget -----------------------------------
  */
 
-.no-size {
-	width: 25px;
-	margin-bottom: 30px;
-	position: relative;
-	display: inline;
-}
-
-.no-size label {
-	cursor: pointer;
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: -4px;
-  	left: 0;
-	background: #eee;
-	border:2px solid #000;
-}
-
-.no-size label:after {
-	opacity: 0.2;
-	content: '';
-	position: absolute;
-	width: 9px;
-	height: 5px;
-	background: transparent;
-	top: 6px;
-	left: 7px;
-	border: 3px solid #333;
-	border-top: none;
-	border-right: none;
-
-	transform: rotate(-45deg);
-}
-
-.no-size label:hover::after {
-	opacity: 0.2;
-}
-
-.no-size input[type=checkbox]:checked + label:after {
-	opacity: 1;
-}
-
 .ico-amenities-active { background-image: url(/images/sprite-facilities.png); background-position: -300px -100px; width: 30px; height: 31px; display: inline-block; vertical-align: middle; font-size: 0; }
 .ico-amenities-dark { background-image: url(/images/sprite-facilities.png); background-position: -300px -200px; width: 30px; height: 31px; display: inline-block; vertical-align: middle; font-size: 0; }
 .ico-amenities { background-image: url(/images/sprite-facilities.png); background-position: -300px 0px; width: 30px; height: 31px; display: inline-block; vertical-align: middle; font-size: 0; }
@@ -1050,6 +1008,53 @@ select.field.error {border:2px solid red;}
 	Form Search
 \* ------------------------------------------------------------ */
 
+.no-size {
+	width: 25px;
+	margin-bottom: 30px;
+	position: relative;
+	display: inline;
+}
+
+.no-size label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: -4px;
+  	left: 0;
+	background: #eee;
+	border:2px solid #000;
+}
+
+.no-size label:after {
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+
+.no-size label:hover::after {
+	opacity: 0.2;
+}
+
+.no-size input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+div.popupLabel label {border-color:#fff; background-color: #8fba5d;}
+div.popupLabel label:after {border-color: #fff;}
+h6.popupLabel {margin-right: 10px;}
+
+.fadeRadio {opacity: 0.4;}
+
 .form-search .form-head { padding-top: 30px; text-align: center; margin-bottom: 20px; }
 .form-search .form-head h3 { font-weight: 700; font-size: 36px; letter-spacing: 0.05em; line-height: 1.1; margin: 0; }
 
@@ -1074,6 +1079,7 @@ select.field.error {border:2px solid red;}
 .form-search .form-actions .close-popup span { display: block; padding-top: 5px; font-weight: 700; font-size: 14px; }
 
 @media (min-width: 750px) {
+	div.popupLabel label {top:-15px; border-color:#fff; background-color: #8fba5d;}
 	.form-search .form-head { padding-top: 90px; margin-bottom: 70px; }
 
 	.form-search .form-actions .button-reset { padding: 15px 10px 0 50px; }

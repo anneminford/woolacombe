@@ -228,7 +228,7 @@ function get_results_by_page(page, offers) {
 
 			get_results_by_page(1, offers);
 			window.advanced = false;
-
+			// search results page advanced search
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
 			      $('#field-party-size').val('').prop('disabled', true);
@@ -237,6 +237,20 @@ function get_results_by_page(page, offers) {
 			     $('#field-party-size').val('1').prop('disabled', false);
 			     console.log('unchecked');
 			   }
+			});
+			// overlay search
+			$( "body" ).on( "change", "#no-size-popup", function(e) {
+			    e.preventDefault();
+			    console.log('delegated event');
+			    if ($('#no-size-popup').is(':checked') == true){
+			      $('.list-radios-secondary input').val('').prop('disabled', true);
+			      console.log('This is checked');
+			      $('.list-radios-secondary label').addClass('fadeRadio');
+			   }  else {
+			     $('.list-radios-secondary input').val('1').prop('disabled', false);
+			     console.log('unchecked');
+			     $('.list-radios-secondary label').removeClass('fadeRadio');
+			   };
 			});
 
 			$('.search-by-location-advanced').click(function(e) {
