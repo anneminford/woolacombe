@@ -1,0 +1,98 @@
+<div class="form form-advanced-search">
+    <form action="?" method="post">
+        <div class="form-head">
+            <h4>Advanced search</h4>
+        </div>
+        <!-- /.form-head -->
+
+        <div class="form-body">
+            <div class="form-calendar">
+                <div class="product-calendar"></div>
+                <!-- /.product-calendar -->
+
+                <h6>Key for calender:</h6>
+                <ul class="list-key">
+                    <li> <span class="date-selected">Date Selected</span> </li>
+                    <li> <span class="date-unavailable">No longer available</span> </li>
+                </ul>
+            </div>
+            <!-- /.form-calendar -->
+
+            <div class="form-fields">
+                <h6>Duration of stay:</h6>
+                <ul class="list-radios">
+                    <li>
+                        <div class="radio">
+                            <input type="radio" name="duration-group" id="field-3-days" value="3" autocomplete="off" checked>
+                            <label class="form-label" for="field-3-days">3 Nights</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio">
+                            <input type="radio" name="duration-group" id="field-4-days" value="4" autocomplete="off">
+                            <label class="form-label" for="field-4-days">4 Nights</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="radio">
+                            <input type="radio" name="duration-group" id="field-7-days" value="7" autocomplete="off">
+                            <label class="form-label" for="field-7-days">7 Nights</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <h6>Party size:</h6>
+
+                <input type="text" name="field-party-size" id="field-party-size" class="field" value="1">
+                 <h6 class="inline">Party size not confirmed</h6> 
+                 <div class="no-size">         
+                    <input type="checkbox" name="no-size" id="no-size" value="1"> 
+                    <label for="no-size"></label>
+                 </div>
+
+                <!-- <h6>Property type:</h6>
+                <select class="select">
+                <option value="cottage">Cottage</option>
+                <option value="cottage">Cottage</option>
+                <option value="cottage">Cottage</option>
+                <option value="cottage">Cottage</option>
+                <option value="cottage">Cottage</option>
+                </select> -->
+
+            </div>
+            <!-- /.form-fields -->
+
+            <div class="form-icons">
+                <h6>By facility:</h6>
+                <ul class="list-icons">
+                    <!-- ID's found at http://wo.api.carltonsoftware.co.uk/ under attributes -->
+                    <li> <i class="ico-family-dark"></i> <span data-id="ATTR01">Family Orientated</span> </li>
+                    <li> <i class="ico-friday-dark"></i> <span data-id="ATTR03">Friday Changeover</span> </li>
+                    <li> <i class="ico-beach-dark"></i> <span data-id="ATTR04">Walk to the Beach</span> </li>
+                    <li> <i class="ico-BBQ-dark"></i> <span data-id="ATTR05">BBQ area</span> </li>
+                    <li> <i class="ico-tranquil-dark"></i> <span data-id="ATTR06">Tranquil Location</span> </li>
+                    <li> <i class="ico-amenities-dark"></i> <span data-id="ATTR07">Walk to Amenities</span> </li>
+                    <li> <i class="ico-rural-dark"></i> <span data-id="ATTR08">Rural Views</span> </li>
+                    <li> <i class="ico-saturday-dark"></i> <span data-id="ATTR09">Saturday Changeover</span> </li>
+                    <li> <i class="ico-pets-dark"></i> <span data-id="ATTR10">Pets Welcome</span> </li>
+                    <li> <i class="ico-wifi-dark"></i> <span data-id="ATTR11">Wi-Fi Internet</span> </li>
+                    <li> <i class="ico-luxury-dark"></i> <span data-id="ATTR12">Luxurious</span> </li>
+                    <li> <i class="ico-sea-dark"></i> <span data-id="ATTR13">Sea views</span> </li>
+                    <li> <i class="ico-disabled-dark"></i> <span data-id="ATTR14">Disabled Access</span> </li>
+                    <li> <i class="ico-horses-dark"></i> <span data-id="ATTR15">Horses</span> </li>
+                    <li> <i class="ico-linen-dark"></i> <span data-id="ATTR16">Linen Inclusive</span> </li>
+                </ul>
+                <!-- /.list-icons -->
+            </div>
+            <!-- /.form-icons -->
+        </div>
+        <!-- /.form-body -->
+
+        <div class="form-actions">
+            <button type="reset" class="button-reset"> <i class="ico-close-dark"></i> <span>Clear Selection</span> </button>
+            <button type="submit" class="button button-black search-by-location-advanced test">Search</button>
+        </div>
+        <!-- /.form-actions -->
+    </form>
+</div>
+<!-- /.form form-advanced-search -->

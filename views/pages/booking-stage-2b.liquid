@@ -1,0 +1,366 @@
+---
+title: Booking Stage 2b
+
+# true if the page is included in the menu
+listed: true
+
+# true if the page is published
+published: true
+
+# true if the page can be used as a layout for new pages created by the editors
+# is_layout: true
+
+# position among sibling pages
+# position: 1
+
+# sets a redirection to the given url (301)
+# redirect_url: "<url to a page or to a remote url>"
+
+# other unique identifier of this page. To be used with the path_to liquid tag.
+# handle: my-page-handle
+
+# content type that this page is templatizing
+# content_type: "<slug of one of the content types>"
+
+
+editable_elements:
+  main/Page Header/Page Header Image: "/samples/pages/intro-home-image.jpg"
+---
+{% extends parent %}
+
+{% block main %}
+    {% block 'Page Header' %}
+    <div class="intro intro-small">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Page Header Image' %}{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+		<section class="section-booking section-booking-stage2 section-booking-stage2b">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>Payment - <span>Step 2</span></h3>
+
+								<a href="#" class="back">&lt; Return &amp; cancel order</a>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<ol class="list-booking-steps">
+							<li>Your details</li>
+
+							<li class="current">Payment details</li>
+
+							<li>Confirmation</li>
+						</ol><!-- /.list-booking-steps -->
+
+						<section class="section-payment-secondary">
+							<header class="section-head">
+								<div class="row">
+									<div class="twelve columns">
+										<h4>Enter card details</h4>
+									</div><!-- /.twelve columns -->
+								</div><!-- /.row -->
+							</header><!-- /.section-head -->
+
+							<div class="section-body">
+								<div class="form form-card">
+									<form action="?" method="post">
+										<div class="form-body">
+											<div class="row">
+												<div class="three columns">
+													<label for="field-card-number" class="form-label">Card number<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="form-hint">(Enter without spaces)</div><!-- /.form-hint -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-card-number" id="field-card-number" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-card-type" class="form-label">Card Type</label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-card-type" id="field-card-type" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-first-name" class="form-label">First name<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="form-hint">(Enter name as it appears on card)</div><!-- /.form-hint -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-first-name" id="field-first-name" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-surname" class="form-label">Surname<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="form-hint">(Enter name as it appears on card)</div><!-- /.form-hint -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-surname" id="field-surname" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row row-primary">
+												<div class="three columns">
+													<label class="form-label">Valid from</label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls form-controls-primary">
+														<span>Month:</span>
+
+														<select class="select">															
+															<option value="1">1</option>
+															
+															<option value="2">2</option>
+															
+															<option value="3">3</option>
+															
+															<option value="4">4</option>
+														</select>
+
+														<span>Year:</span>
+
+														<select class="select">															
+															<option value="1">1</option>
+															
+															<option value="2">2</option>
+															
+															<option value="3">3</option>
+															
+															<option value="4">4</option>
+														</select>
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row row-primary">
+												<div class="three columns">
+													<label class="form-label">Expiry date<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls form-controls-primary">
+														<span>Month:</span>
+
+														<select class="select">															
+															<option value="1">1</option>
+															
+															<option value="2">2</option>
+															
+															<option value="3">3</option>
+															
+															<option value="4">4</option>
+														</select>
+
+														<span>Year:</span>
+
+														<select class="select">															
+															<option value="1">1</option>
+															
+															<option value="2">2</option>
+															
+															<option value="3">3</option>
+															
+															<option value="4">4</option>
+														</select>
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-security-code" class="form-label">Security code<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="tooltip">
+														<i class="ico-tooltip"></i>
+													</div><!-- /.tooltip -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-security-code" id="field-security-code" class="field field-small">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-address-line1" class="form-label">Billing address line 1<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="tooltip">
+														<i class="ico-tooltip"></i>
+													</div><!-- /.tooltip -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-address-line1" id="field-address-line1" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-address-line2" class="form-label">Billing address line 2</label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-address-line2" id="field-address-line2" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-city" class="form-label">Billing city<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-city" id="field-city" class="field">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row">
+												<div class="three columns">
+													<label for="field-postcode" class="form-label">Billing postcode</label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													<div class="tooltip">
+														<i class="ico-tooltip"></i>
+													</div><!-- /.tooltip -->
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<input type="text" name="field-postcode" id="field-postcode" class="field field-medium">
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+
+											<div class="row row-secondary">
+												<div class="three columns">
+													<label class="form-label">Billing country<span class="form-asterisk">*</span></label>
+												</div><!-- /.three columns -->
+
+												<div class="five columns u-pull-right">
+													
+												</div><!-- /.five columns u-pull-right -->
+
+												<div class="four columns">
+													<div class="form-controls">
+														<select class="select">
+															<option value="">United Kingdom</option>
+															
+															<option value="">United Kingdom</option>
+															
+															<option value="">United Kingdom</option>
+															
+															<option value="">United Kingdom</option>
+															
+															<option value="">United Kingdom</option>
+														</select>
+													</div><!-- /.form-controls -->
+												</div><!-- /.four columns -->
+											</div><!-- /.row -->
+										</div><!-- /.form-body -->
+
+										<div class="form-actions">
+											<div class="row">
+												<div class="twelve columns">
+													<div class="u-pull-left">
+														<a href="#" class="button-grey">Back</a>
+
+														<a href="#" class="button-grey button-grey-alt">Cancel</a>
+													</div><!-- /.u-pull-left -->
+
+													<div class="u-pull-right">
+														<a href="#" class="button button-proceed">
+															<span>Proceed</span>
+
+															<i class="ico-proceed"></i>
+														</a>
+													</div><!-- /.u-pull-right -->
+
+													<h6>FAQ</h6>
+
+													<p class="lock">
+														<i class="ico-lock-green"></i>
+
+														<span>If your browser is not showing the secure padlock on your screen click on this padlock</span>
+													</p><!-- /.lock -->
+												</div><!-- /.twelve columns -->
+											</div><!-- /.row -->
+										</div><!-- /.form-actions -->
+									</form>
+								</div><!-- /.form form-card -->
+							</div><!-- /.section-body -->
+						</section><!-- /.section-payment-secondary -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section-booking section-booking-stage1 -->
+	</div><!-- /.main -->
+{% endblock %}

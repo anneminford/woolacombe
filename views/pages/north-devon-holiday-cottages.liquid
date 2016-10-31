@@ -1,0 +1,82 @@
+---
+title: North Devon Holiday Cottages
+slug: north-devon-holiday-cottages
+position: 2
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: Cottages in..
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+        <div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+            <img src="{{ header_image }}" height="1050" width="1599" alt="">
+        </div><!-- /.intro-image -->
+
+        <div class="intro-content">
+            <div class="container">
+                <div class="intro-inner">
+                    <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+                </div><!-- /.intro-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.intro-content -->
+    </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+        <div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#" class="current">Locations</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+		<section class="section-product-listing">
+			<div class="container">
+				<div class="section-body">
+					<div class="row">
+                        {% editable_model destinations %}
+                            {% for d in contents.destinations %}
+                                {% assign loopindex = forloop.index | modulo: 4 %}
+                                {% if loopindex == 1 %}
+                                {% if forloop.index != 1 %}</div>{% endif %}
+                                <div class="row">
+                                {% endif %}
+                                <div class="three columns">
+                                    <div class="product-item">
+                                        <a href="{% path_to: d %}">
+                                            <img src="{{ d.listing_page_image.url }}" height="251" width="290" alt="">
+                                            <h4>{{ d.destination_name }}</h4>
+                                            <p>{{ d.short_content }}</p>
+                                        </a>
+                                    </div><!-- /.product-item -->
+                                </div><!-- /.three columns -->
+                            {% endfor %}
+                        {% endeditable_model %}
+					</div><!-- /.row -->
+				</div><!-- /.section-body -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing -->
+	</div><!-- /.main -->
+{% endblock %}
+
+
+
+

@@ -1,0 +1,217 @@
+---
+title: Cottage
+slug: cottage
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image.jpg"
+  main/Page Header/Page Heading: A closer look at our beautiful locations
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+        <div class="intro anne">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Header Image' %}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+
+            <div class="intro-content">
+                <div class="container">
+                    <div class="intro-inner">
+                        <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+                    </div><!-- /.intro-inner -->
+                </div><!-- /.container -->
+            </div><!-- /.intro-content -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+    <div class="main">
+		<section class="section-product">
+			<div class="container">
+				<div class="section-body">
+					<div class="row">
+						<div class="eight columns">
+							<div class="breadcrumbs">
+								<a href="/">Home</a>
+								<span>&gt;</span>
+								<a href="/north-devon-holiday-cottages">Locations</a>
+								<span>&gt;</span>
+								<a href="" id="populate-by-location"></a>
+								<span>&gt;</span>
+								<a href="#" class="current breadcrumb-cottage"></a>
+							</div><!-- /.breadcrumbs -->
+
+							<div class="slider slider-product">
+								<div class="slides owl-carousel">
+								</div><!-- /.large images go in here -->
+							</div><!-- /.slider -->
+
+							<div class="slider slider-product-thumbs">
+								<div class="slides owl-carousel">
+								</div><!-- /.Thumbs go in here -->
+							</div><!-- /.slider -->
+
+							<div class="tabs">
+								<header class="tabs-head">
+									<nav class="tabs-nav">
+										<ul>
+                                            <li class="current"><a href="#tab-description">Description</a></li>
+											<li><a href="#tab-map">Map</a></li>
+											<li><a href="#tab-reviews">Reviews</a></li>
+										</ul>
+									</nav><!-- /.tabs-nav -->
+								</header><!-- /.tabs-head -->
+								
+								<div class="tabs-body">
+									<div class="tab current" id="tab-description">
+										<div class="product-description">
+											<div class="row">
+												<div class="four columns u-pull-right cottage-icons">
+													<!-- /.list-icons -->
+												</div><!-- /.four columns -->
+
+												<div class="eight columns">
+													<div class="cottage-description-full"></div>
+													<!-- <a href="#" class="link-more">Show more...</a> -->
+												</div><!-- /.eight columns -->
+											</div><!-- /.row -->											
+										</div><!-- /.product-description -->
+									</div><!-- /.tab -->
+									
+									<div class="tab" id="tab-map">
+										<div class="product-map" id="product-map" data-lat="51.175551" data-lng="-4.194223"></div><!-- /.product-map -->
+									</div><!-- /.tab -->
+									
+									<div class="tab" id="tab-reviews">
+										<div class="product-reviews">
+											<blockquote class="product-review">
+												<!-- <cite class="property-review">Lauren Just</cite>
+
+												<p class="">we stayed on a four night break and me and my wife loved it , we have already re booked to go back next year. The accommodation is very clean indeed and full of home comforts lovely walks around the estate with lakes /ponds /streams and waterfalls. You will not be disappointed if you book here.</p> -->
+												<cite class="cottage-review-header"></cite>
+												<p class="cottage-review"></p>
+											</blockquote><!-- /.product-review -->
+										</div><!-- /.product-reviews -->
+									</div><!-- /.tab -->
+								</div><!-- /.tabs-body -->
+							</div><!-- /.tabs -->					
+						</div><!-- /.eight columns -->
+						
+						<div class="four columns">
+							<div class="product-overview">
+								<div class="product-overview-bar">
+									<div class="share">
+										<a href="#" class="share-btn">
+											<i class="ico-share"></i>
+										</a>
+
+										{%  include 'socials' %}
+									</div><!-- /.share -->
+								</div><!-- /.product-overview-bar -->
+
+								<header class="product-overview-head">
+									<h3 class="cottage-title"></h3>
+
+									<h4 class="cottage-town"></h4><br />Sleeps <span class="cottage-sleeps"></span>, Bedrooms: <span class="cottage-beds"></span>
+
+									<h6>About the location:</h6>
+
+									<p class="cottage-teaser"></p>
+
+									<a href="#" class="link-more">Detailed Description</a>
+								</header><!-- /.product-overview-head -->
+
+								<div class="product-overview-body">
+									<h6>Date of arrival:</h6>
+
+									<div class="product-calendar"></div><!-- /.product-calendar -->
+
+									<h6>Key for calender:</h6>
+
+									<ul class="list-key">
+										<li>
+											<span class="date-selected">Date Selected</span>
+										</li>
+
+										<li>
+											<span class="date-unavailable">No longer available</span>
+										</li>
+									</ul><!-- /.list-key -->
+
+									<div class="row">
+										<div class="eight columns">
+											<h6 class="">Duration of stay:</h6>
+											<ul class="list-radios">
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-3-days" value="3" autocomplete="off">
+														
+														<label class="form-label" for="field-3-days">3 Nights</label>
+													</div><!-- /.radio -->
+												</li>
+												
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-4-days" value="4" autocomplete="off">
+														
+														<label class="form-label" for="field-4-days">4 Nights</label>
+													</div><!-- /.radio -->
+												</li>
+												
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-7-days" value="7" autocomplete="off">
+														
+														<label class="form-label" for="field-7-days">7 Nights</label>
+													</div><!-- /.radio -->
+												</li>
+											</ul><!-- /.list-radios -->
+										</div><!-- /.eight columns -->
+
+										<div class="four columns">
+											<h6>Party size:</h6>
+
+											<input type="text" name="field-party-size" id="field-party-size" class="field" value="1">
+										</div><!-- /.four columns -->
+									</div><!-- /.row -->
+								</div><!-- /.product-overview-body -->
+
+								<footer class="product-overview-foot">
+									<h3>Price: <span class="booking-price"></span></h3>
+
+									<p class="error" style="display:none;"></p>
+
+									<button class="button-orange">Book now</button>
+
+									<div class="product-special">
+										<h4 class="cottage-offer-header">Special Offers</h4>
+
+										<p class="cottage-offer"><!-- 20% off Wednesday 10 September 2016<br />10% off Wednesday 10 November 2016<br /><strong>Book now and don’t miss out!</strong> --></p>
+									</div><!-- /.product-special -->
+								</footer><!-- /.product-overview-foot -->
+							</div><!-- /.product-overview -->
+						</div><!-- /.four columns -->
+					</div><!-- /.row -->
+				</div><!-- /.section-body -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product -->
+
+		<section class="section section-product-listing section-other">
+			<div class="container">
+				<header class="section-head">
+					<h3>Other properties nearby</h3>
+				</header><!-- /.section-head -->
+
+				<div class="section-body other-properties">
+					
+				</div><!-- /.section-body -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing -->
+	</div><!-- /.main -->
+{% endblock %}
+
+
+

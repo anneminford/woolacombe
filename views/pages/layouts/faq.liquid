@@ -1,0 +1,72 @@
+---
+title: Faq
+slug: faq
+position: 99
+listed: false
+published: false
+is_layout: true
+---
+{% include 'header' %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+		<div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+			<img src="{{ header_image }}" height="1050" width="1599" alt="">
+		</div><!-- /.intro-image -->
+
+		<div class="intro-content">
+			<div class="container">
+				<div class="intro-inner">
+					<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+				</div><!-- /.intro-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.intro-content -->
+	</div><!-- /.intro intro-home -->
+    {% endblock %}
+
+    {% block 'Content' %}
+	<div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#" class="current">{{ page.title }}</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+        <section class="section-faq">
+            <div class="container">
+                <div class="row">
+                    <div class="eight columns">
+                        <div class="section-inner">
+                            <header class="section-head">
+                                <h2>{% editable_text 'Content Title', format:raw, rows:1 %}{% endeditable_text %}</h2>
+                            </header><!-- /.section-head -->
+                            <div class="section-body">
+                                {% editable_text 'Page Content' %}{% endeditable_text %}
+                            </div><!-- /.section-body -->
+                        </div><!-- /.section-inner -->
+                    </div><!-- /.eight columns -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.section-faq -->
+	</div><!-- /.main -->
+    {% endblock %}
+{% endblock %}
+{% include 'footer' %}
+
+
+
+

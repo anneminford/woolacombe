@@ -1,0 +1,59 @@
+<head>
+
+<script type='text/javascript'>
+(function (d, t) {
+ var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+ bh.type = 'text/javascript';
+ bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=c8gt7feao76klb5kdjkhja';
+ s.parentNode.insertBefore(bh, s);
+ })(document, 'script');
+</script>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    {% if page.seo_title %}
+    <title>{{ page.seo_title }} | {{ site.name }}</title>
+    {% elsif content_entry.seo_title %}
+    <title>{{ content_entry.seo_title }} | {{ site.name }}</title>
+    {% else %}
+    <title>{{ page.title }} | {{ site.name }}</title>
+    {% endif %}
+    {% if page.meta_description %}
+    <meta name="description" content="{{ page.meta_description }}">
+    {% elsif content_entry.meta_description %}
+    <meta name="description" content="{{ content_entry.meta_description }}">
+    {% else %}
+    {% endif %}
+    {% if page.meta_keywords %}
+    <meta name="keywords" content="{{ page.meta_keywords }}">
+    {% elsif content_entry.meta_keywords %}
+    <meta name="keywords" content="{{ page.meta_keywords }}">
+    {% else %}
+    {% endif %}
+    
+	<link rel="shortcut icon" type="image/x-icon" href="{{ site.metafields.theme.favicon }}" />
+
+    {{ 'https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700italic,700' | stylesheet_tag }}
+    {{ 'normalize.css' | stylesheet_tag }}
+    {{ 'skeleton.css' | stylesheet_tag }}
+    {{ 'owl.carousel.min.css' | stylesheet_tag }}
+    {{ 'magnific-popup.css' | stylesheet_tag }}
+    {{ 'dropdown.css' | stylesheet_tag }}
+    {{ 'style.css' | stylesheet_tag }}
+    {{ 'jquery-1.11.3.min.js' | javascript_tag }}
+    {{ 'owl.carousel.min.js' | javascript_tag }}
+    {{ 'jquery.magnific-popup.min.js' | javascript_tag }}
+    {{ 'core.js' | javascript_tag }}
+    {{ 'touch.js' | javascript_tag }}
+    {{ 'dropdown.js' | javascript_tag }}
+    {{ 'jquery-ui-1.10.4.custom.min.js' | javascript_tag }}
+    {{ 'jquery.validate.min.js' | javascript_tag }}
+    {{ 'https://maps.googleapis.com/maps/api/js?language=en' | javascript_tag }}
+    {{ 'functions.js' | javascript_tag }}
+    {{ '//cdn.inspiradigital.co.uk/lib/buzz/buzz.js' | javascript_tag }}
+    {{ 'functions-anne.js' | javascript_tag }}
+     
+    
+    {{ site.metafields.tracking.ga_code }}
+</head>

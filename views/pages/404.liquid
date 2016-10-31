@@ -1,0 +1,32 @@
+---
+title: Page not found
+slug: '404'
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+    main/Homepage Header/Homepage Header Image: "/samples/pages/intro-home-image.jpg"
+    main/Homepage Header/Homepage Heading: "Whoops, looks like something's gone missing"
+    main/Homepage Header/Link Text: "Return to Homepage"
+---
+{% extends index %}
+
+{% block main %}
+    {% block 'Homepage Header' %}
+        <div class="intro intro-home">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Homepage Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+            <div class="intro-content">
+                <div class="container">
+                    <div class="intro-inner">
+                        <h2>{% editable_text 'Homepage Heading', format:raw, rows:1 %}{% endeditable_text %}</h2>
+                        <a href="/" class="button">{% editable_text 'Link Text', format:raw, rows:1 %}{% endeditable_text %}</a>
+                    </div><!-- /.intro-inner -->
+                </div><!-- /.container -->
+            </div><!-- /.intro-content -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+{% endblock %}

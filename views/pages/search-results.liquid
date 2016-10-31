@@ -1,0 +1,90 @@
+---
+title: Search
+slug: search-results
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: Your Search Results
+main/Page Header/Page Heading: Your Search Results
+---
+{% extends parent %}
+{% block 'main' %}
+{% block 'Page Header' %}
+<div class="intro">
+	<div class="intro-image">
+		{% capture header_image %}{% editable_file 'Header Image'%}/samples/pages/intro-home-image.jpg{% endeditable_file %}{% endcapture %}
+		<img src="{{ header_image }}" height="1050" width="1599" alt="">
+	</div><!-- /.intro-image -->
+
+	<div class="intro-content">
+		<div class="container">
+			<div class="intro-inner">
+				<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+			</div><!-- /.intro-inner -->
+		</div><!-- /.container -->
+	</div><!-- /.intro-content -->
+</div><!-- /.intro intro-home -->
+{% endblock %}
+
+<div class="main">
+	<div class="breadcrumbs-bar">
+		<div class="container">
+			<div class="breadcrumbs-bar-inner">
+				<div class="breadcrumbs">
+					<a href="#">Home</a>
+					<span>&gt;</span>
+					<a href="#">Locations</a>
+					<span>&gt;</span>
+					<a href="#" class="current">Search</a>
+				</div><!-- /.breadcrumbs -->
+
+				<div class="share">
+					<a href="#" class="share-btn">
+						<i class="ico-share"></i>
+					</a>
+
+					{% include 'socials' %}
+				</div><!-- /.share -->
+			</div><!-- /.breadcrumbs-bar-inner -->
+		</div><!-- /.container -->
+	</div><!-- /.breadcrumbs -->
+
+	<section class="section-product-listing-alt">
+		<div class="container">
+			<div class="row">
+				<div class="three columns">
+					<aside class="section-sidebar">
+						<div class="section-sidebar-body">
+							{% include 'filters' %}
+						</div><!-- /.section-sidebar-body -->
+
+						<div class="section-sidebar-actions">
+							<a href="#" class="toggle-search" data-closed-text="Show Advanced Search" data-opened-text="Hide Advanced Search"></a>
+						</div><!-- /.section-sidebar-actions -->
+					</aside><!-- /.section-sidebar -->
+				</div><!-- /.three columns -->
+
+				<div class="nine columns">
+					<div class="section-body search-results search-by-location">
+						<div class="section-outro anne">
+							<h4>{% editable_text 'Footer Heading', format:raw, rows:1 %}{% endeditable_text %}</h4>
+							{% editable_text 'Footer Content' %}{% endeditable_text %}
+						</div><!-- /.section-outro -->
+					</div><!-- /.section-body -->
+				</div><!-- /.nine columns -->
+			</div><!-- /.row -->
+
+			<div class="section-paging">
+			</div><!-- /.section-paging -->
+
+
+		</div><!-- /.container -->
+	</section><!-- /.section-product-listing-alt -->
+</div><!-- /.main -->
+{% endblock %}
+
+
+

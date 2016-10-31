@@ -1,0 +1,129 @@
+---
+title: Booking Stage 3
+
+# true if the page is included in the menu
+listed: true
+
+# true if the page is published
+published: true
+
+# true if the page can be used as a layout for new pages created by the editors
+# is_layout: true
+
+# position among sibling pages
+# position: 1
+
+# sets a redirection to the given url (301)
+# redirect_url: "<url to a page or to a remote url>"
+
+# other unique identifier of this page. To be used with the path_to liquid tag.
+# handle: my-page-handle
+
+# content type that this page is templatizing
+# content_type: "<slug of one of the content types>"
+
+
+editable_elements:
+  main/Page Header/Page Header Image: "/samples/pages/intro-home-image.jpg"
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+        <div class="intro intro-small">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Page Header Image' %}{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+		<section class="section-booking section-booking-stage3">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>Confirmation - <span>Step 3</span></h3>
+								<a href="/" class="back">&lt; Return</a>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<ol class="list-booking-steps">
+							<li>Your details</li>
+
+							<li>Payment details</li>
+
+							<li class="current">Confirmation</li>
+						</ol><!-- /.list-booking-steps -->
+<section class="section-thanks error" style="display:none;">
+							
+							<p>Payment Error - <span class="reason"></span></p>
+							<p>Please review required information and begin a new booking, if the problem persists please get in contact</p>
+							<div class="errorButtons">
+								<a href="contact-us" class="button button-black">Go to Contact Page</a>
+								<a href="/" class="button button-black">Begin New Booking</a>
+							</div>
+							
+						</section><!-- /.section-error -->	
+						<section class="section-thanks">
+							<header class="section-head">
+								<h4>Thank you for Booking</h4>
+							</header><!-- /.section-head -->
+
+							<div class="section-body">
+								<div class="section-image">
+									<div class="cottage-image"></div>
+								</div><!-- /.section-image -->
+
+								<div class="section-entry">
+									<h4 class="cottage-title">Title in here</h4>
+									<h6 class="cottage-town"></h6>Sleeps: <span class="cottage-sleeps"></span>, Bedrooms: <span class="cottage-beds"></span>
+
+									<p class="date">
+										<strong>Date:</strong>
+
+										<span>20/12/16 to 25/12/16</span>
+									</p><!-- /.date -->
+
+									<p class="duration">
+										<strong>Duration:</strong>
+
+										<span>5 days</span>
+									</p><!-- /.duration -->
+
+									<!-- <p>
+										<strong>Property</strong>
+
+										<span>£270.00</span>
+									</p>
+
+									<p>
+										<strong>Extras</strong>
+
+										<span>0.00</span>
+									</p> -->
+
+									<p class="total">
+										<strong>Price</strong>
+
+										<span>£270.00</span>
+									</p><!-- /.total -->
+								</div><!-- /.section-entry -->
+
+								<div class="section-entry-full">
+									{% editable_text 'Booking Confirmation Text' %}{% endeditable_text %}
+
+									<img src="{{ 'sage-pay.jpg' | theme_image_url }}" height="61" width="111" alt="">
+								</div><!-- /.section-entry-full -->
+							</div><!-- /.section-body -->
+						</section><!-- /.section-thanks -->
+												
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section-booking section-booking-stage1 -->
+	</div><!-- /.main -->
+{% endblock %}

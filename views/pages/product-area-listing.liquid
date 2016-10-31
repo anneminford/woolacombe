@@ -1,0 +1,543 @@
+---
+title: Product Area Listing
+slug: product-area-listing
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/images/image-placeholder.jpg"
+  main/Page Header/Page Heading: ''
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+        <div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image' %}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+            <img src="{{ header_image }}" height="1050" width="1599" alt="">
+        </div><!-- /.intro-image -->
+
+        <div class="intro-content">
+            <div class="container">
+                <div class="intro-inner">
+                    <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+                </div><!-- /.intro-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.intro-content -->
+    </div><!-- /.intro intro-home -->
+    {% endblock %}
+    <div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="#">Home</a>
+
+						<span>&gt;</span>
+
+						<a href="#">Locations</a>
+
+						<span>&gt;</span>
+
+						<a href="#" class="current">Saunton Holiday Cottages</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+
+		<section class="section-product-listing-alt">
+			<div class="container">
+				<div class="row">
+					<div class="three columns">
+						<aside class="section-sidebar">
+							<div class="section-sidebar-body">
+								<div class="form form-advanced-search">
+									<form action="?" method="post">
+										<div class="form-head">
+											<h4>Advanced search</h4>
+										</div><!-- /.form-head -->
+
+										<div class="form-body">
+											<div class="form-calendar">
+												<div class="product-calendar"></div><!-- /.product-calendar -->
+
+												<h6>Key for calender:</h6>
+
+												<ul class="list-key">
+													<li>
+														<span class="date-selected">Date Selected</span>
+													</li>
+
+													<li>
+														<span class="date-unavailable">No longer available</span>
+													</li>
+												</ul>
+											</div><!-- /.form-calendar -->
+
+											<div class="form-fields">
+												<h6>Duration of stay:</h6>
+
+												<ul class="list-radios">
+													<li>
+														<div class="radio">
+															<input type="radio" name="duration-group" id="field-3-days">
+															
+															<label class="form-label" for="field-3-days">3 days</label>
+														</div><!-- /.radio -->
+													</li>
+													
+													<li>
+														<div class="radio">
+															<input type="radio" name="duration-group" id="field-5-days">
+															
+															<label class="form-label" for="field-5-days">5 days</label>
+														</div><!-- /.radio -->
+													</li>
+													
+													<li>
+														<div class="radio">
+															<input type="radio" name="duration-group" id="field-7-days">
+															
+															<label class="form-label" for="field-7-days">7 days</label>
+														</div><!-- /.radio -->
+													</li>
+												</ul>
+
+												<h6>Party size:</h6>
+
+												<input type="text" name="field-party-size" id="field-party-size" class="field" placeholder="1">
+
+												<h6>Property type:</h6>
+
+												<select class="select">
+													<option value="cottage">Cottage</option>
+													
+													<option value="cottage">Cottage</option>
+													
+													<option value="cottage">Cottage</option>
+													
+													<option value="cottage">Cottage</option>
+													
+													<option value="cottage">Cottage</option>
+												</select>
+											</div><!-- /.form-fields -->
+
+											<div class="form-icons">
+												<h6>By facility:</h6>
+
+												<ul class="list-icons">
+													<li>
+														<i class="ico-pets-dark"></i>
+
+														<span>Pets</span>
+													</li>
+
+													<li>
+														<i class="ico-disabled-dark"></i>
+
+														<span>Disabled access</span>
+													</li>
+
+													<li>
+														<i class="ico-wifi-dark"></i>
+
+														<span>Wi-fi Internet</span>
+													</li>
+
+													<li>
+														<i class="ico-luxury-dark"></i>
+
+														<span>Luxury</span>
+													</li>
+
+													<li>
+														<i class="ico-romantic-dark"></i>
+
+														<span>Romantic</span>
+													</li>
+
+													<li>
+														<i class="ico-fireplace-dark"></i>
+
+														<span>Open fireplace</span>
+													</li>
+
+													<li>
+														<i class="ico-leisure-dark"></i>
+
+														<span>Leisure activities</span>
+													</li>
+
+													<li>
+														<i class="ico-beach-dark"></i>
+
+														<span>Coastal</span>
+													</li>
+
+													<li>
+														<i class="ico-amenities-dark"></i>
+
+														<span>Close to amenities</span>
+													</li>
+
+													<li>
+														<i class="ico-pub-dark"></i>
+
+														<span>Close to pub</span>
+													</li>
+
+													<li>
+														<i class="ico-family-dark"></i>
+
+														<span>Family oriented</span>
+													</li>
+
+													<li>
+														<i class="ico-rural-dark"></i>
+
+														<span>Rural views</span>
+													</li>
+
+													<li>
+														<i class="ico-traditional-dark"></i>
+
+														<span>Traditional</span>
+													</li>
+												</ul><!-- /.list-icons -->
+											</div><!-- /.form-icons -->
+										</div><!-- /.form-body -->		
+
+										<div class="form-actions">
+											<button type="reset" class="button-reset">
+												<i class="ico-close-dark"></i>
+
+												<span>Clear Selection</span>
+											</button>
+
+											<button type="submit" class="button button-black">Search</button>
+										</div><!-- /.form-actions -->
+									</form>
+								</div><!-- /.form form-advanced-search -->
+							</div><!-- /.section-sidebar-body -->
+
+							<div class="section-sidebar-actions">
+								<a href="#" class="toggle-search" data-closed-text="Show Advanced Search" data-opened-text="Hide Advanced Search"></a>
+							</div><!-- /.section-sidebar-actions -->
+						</aside><!-- /.section-sidebar -->
+					</div><!-- /.three columns -->
+
+					<div class="nine columns">
+						<div class="section-body">
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img1.jpg' | theme_image_url }}" height="251" width="290" alt="">										
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>The Fernery</h4>
+								
+									<h6>Lee<br>Sleeps 8, Bedrooms: 4<br>£270.00</h6>
+									
+									<p>A spacious and contemporary, architect designed, eco home in North Devon The Fernery is a bespoke Four Bedroom Feature Property showcasing contemporary style and design. </p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-luxury-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-romantic-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-wifi-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-fireplace-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-leisure-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-amenities-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-beach-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-pub-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-family-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-rural-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img2.jpg' | theme_image_url }}" height="251" width="290" alt="">										
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>The Stables</h4>
+								
+									<h6>Woolacombe<br>Sleeps 8, Bedrooms: 4<br>£270.00</h6>
+									
+									<p>Sensational four bedroom property, occupying an elevated position above Woolacombe, exaggerating the coastal views, best appreciated from the sea facing large patio area.</p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-amenities-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-beach-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-pub-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-family-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-rural-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img3.jpg' | theme_image_url }}" height="251" width="290" alt="">										
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>Glebe Barn</h4>
+								
+									<h6>Georgeham, North Devon<br>Sleeps 2, Bedrooms: 1<br>£240.00</h6>
+									
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all village amenities.</p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-luxury-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-romantic-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-wifi-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-fireplace-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-leisure-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img4.jpg' | theme_image_url }}" height="251" width="290" alt="">										
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>Pippin Cottage</h4>
+								
+									<h6>Willingcott<br>Sleeps 6, Bedrooms: 3<br>£240.00</h6>
+									
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all village amenities.</p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-amenities-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-beach-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-pub-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-family-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-rural-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img5.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>Hive Cottage</h4>
+								
+									<h6>Georgeham, North Devon<br>Sleeps 6, Bedrooms: 3<br>£240.00</h6>
+									
+									<p>Quaint three bedroom cottage in the heart of Georgeham, within walking distance of village amenities. This cottage creates a cosy feeling through the Devon Character of the property.</p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-luxury-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-romantic-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-wifi-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-fireplace-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-leisure-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+
+							<div class="product-item">
+								<div class="product-item-image">
+									<a href="#">
+										<img src="{{ 'product-item-img6.jpg' | theme_image_url }}" height="251" width="290" alt="">										
+									</a>
+								</div><!-- /.product-item-image -->
+
+								<div class="product-item-content">
+									<h4>Hive Cottage</h4>
+								
+									<h6>Woolacombe<br>Sleeps 6, Bedrooms: 3<br>£240.00</h6>
+									
+									<p>Sensational Three Bedroom Detached Property, showcasing luxury and contemporary style. Offering coastal views from the sun trap garden and patio.</p>
+									
+									<ul class="list-icons">
+										<li>
+											<i class="ico-amenities-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-beach-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-pub-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-family-dark"></i>
+										</li>
+									
+										<li>
+											<i class="ico-rural-dark"></i>
+										</li>
+									</ul>
+
+									<a href="#" class="button button-black">Viewing &amp; Booking</a>
+								</div><!-- /.product-item-content -->
+							</div>
+						</div><!-- /.section-body -->
+					</div><!-- /.nine columns -->
+				</div><!-- /.row -->
+
+				<div class="section-paging">
+					<div class="paging">
+				    	<a href="#" class="paging-prev">&lt;</a>
+				    	
+				    	<ul>
+				    	    <li class="current">
+				    	    	<a href="#">1</a>
+				    	    </li>
+				    	    
+				    	    <li>
+				    	    	<a href="#">2</a>
+				    	    </li>
+				    	    
+				    	    <li>
+				    	    	<a href="#">3</a>
+				    	    </li>
+				    	    
+				    	    <li>
+				    	    	<a href="#">4</a>
+				    	    </li>
+				    	    
+				    	    <li>
+				    	    	<a href="#">5</a>
+				    	    </li>
+				    	</ul>
+				    	
+				    	<a href="#" class="paging-next">&gt;</a>
+				    </div><!-- /.paging -->
+				</div><!-- /.section-paging -->
+
+				<div class="section-outro">
+					<h4>Saunton Holiday Accomodation</h4>
+
+					<p>Saunton beach and the surrounding area is magnificent, with high hills on the North side overlooking Saunton Golf Course, Braunton Burrows, Crow Point and Saunton Beach. A favourite to many is the tranquil Crow Point and surrounding area, far way from any crowds. Great for fishing sea bass and sea activities in the summer months. There is plenty to do on Saunton beach itself, restaurant, cafe, plenty to hire, surfboards, kayaks, stand up surfboards and deck chairs! Book your cottage in Saunton with us.</p>
+				</div><!-- /.section-outro -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing-alt -->
+	</div><!-- /.main -->
+{% endblock %}
+
+

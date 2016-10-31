@@ -1,0 +1,92 @@
+---
+title: Page
+slug: page
+position: 99
+listed: false
+published: false
+is_layout: true
+---
+{% include 'header' %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+		<div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+			<img src="{{ header_image }}" height="1050" width="1599" alt="">
+		</div><!-- /.intro-image -->
+
+		<div class="intro-content">
+			<div class="container">
+				<div class="intro-inner">
+					<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+				</div><!-- /.intro-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.intro-content -->
+	</div><!-- /.intro intro-home -->
+    {% endblock %}
+
+    {% block 'Content' %}
+	<div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#" class="current">{{ page.title }}</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+
+                        {% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+
+        <section class="section-about">
+            <div class="container">
+                <div class="section-inner">
+                    <div class="row">
+                        <div class="eight columns">
+                            <article class="article">
+                                <header class="article-head">
+                                    <h2>{% editable_text 'Content Title', format:raw, rows:1 %}{% endeditable_text %}</h2>
+                                </header><!-- /.article-head -->
+                                <div class="article-body">
+                                    <div class="article-entry">
+                                        {% editable_text 'Page Content' %}{% endeditable_text %}
+                                    </div><!-- /.article-entry -->
+                                </div><!-- /.article-body -->
+                            </article><!-- /.article -->
+                        </div><!-- /.eight columns -->
+
+                        {% capture enable_supporting_info %}{% editable_control "Enable Supporting Information", options: 'true=Yes,false=No' %}false{% endeditable_control %}{% endcapture %}                        
+                        {% if enable_supporting_info == 'true' %}
+                        <div class="four columns">
+                            <div class="widget widget-nav">
+                                <div class="widget-head">
+                                    <h4>{% editable_text 'Supporting Info Header', format:raw, rows:1 %}{% endeditable_text %}</h4>
+                                </div><!-- /.widget-head -->
+
+                                <div class="widget-body">
+                                    {% editable_text 'Supporting Info Content' %}{% endeditable_text %}
+                                </div><!-- /.widget-body -->
+                            </div><!-- /.widget widget-nav -->
+                        </div><!-- /.four columns -->
+                        {% endif %}
+                    </div><!-- /.row -->
+                </div><!-- /.section-inner -->
+            </div><!-- /.container -->
+        </section><!-- /.section-about -->
+	</div><!-- /.main -->
+    {% endblock %}
+{% endblock %}
+{% include 'footer' %}
+
+
+
+

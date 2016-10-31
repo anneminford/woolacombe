@@ -1,0 +1,134 @@
+---
+title: Booking Stage 2
+
+# true if the page is included in the menu
+listed: true
+
+# true if the page is published
+published: true
+
+# true if the page can be used as a layout for new pages created by the editors
+# is_layout: true
+
+# position among sibling pages
+# position: 1
+
+# sets a redirection to the given url (301)
+# redirect_url: "<url to a page or to a remote url>"
+
+# other unique identifier of this page. To be used with the path_to liquid tag.
+# handle: my-page-handle
+
+# content type that this page is templatizing
+# content_type: "<slug of one of the content types>"
+
+
+editable_elements:
+  main/Page Header/Page Header Image: "/samples/pages/intro-home-image.jpg"
+---
+{% extends parent %}
+
+{% block main %}
+    {% block 'Page Header' %}
+    <div class="intro intro-small">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Page Header Image' %}{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+		<section class="section-booking section-booking-stage2">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>Payment - <span>Step 2</span></h3>
+
+								<a href="#" class="back">&lt; Return &amp; cancel order</a>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<ol class="list-booking-steps">
+							<li>Your details</li>
+
+							<li class="current">Payment details</li>
+
+							<li>Confirmation</li>
+						</ol><!-- /.list-booking-steps -->
+
+						<section class="section-payment-primary">
+							<div class="row">
+								<div class="four columns">
+									<div class="transaction-details">
+										<img src="{{ 'logo-sagepay@2x.png' | theme_image_url }}" height="40" width="174" alt="">
+
+										<h4>Transaction details</h4>
+
+										<div class="table">
+											<table>												
+												<tr>
+													<td>To Pay For:</td>
+
+													<td>Example Item Name</td>
+												</tr>
+
+												<tr>
+													<td>Amount:</td>
+													
+													<td>
+														<strong>£499.00</strong>
+													</td>
+												</tr>
+											</table>
+										</div><!-- /.table -->
+									</div><!-- /.transaction-details -->
+								</div><!-- /.four columns -->
+								
+								<div class="four columns">
+									<div class="payment-method">
+										<h4>Select Payment Method</h4>
+
+										<p>Please click below to select the type of card you wish to use</p>
+
+										<ul class="list-cards">
+											<li>
+												<img src="{{ 'logo-visa-electron@2x.png' | theme_image_url }}" height="69" width="109" alt="">
+											</li>
+											
+											<li>
+												<img src="{{ 'logo-visa-debit@2x.png' | theme_image_url }}" height="69" width="110" alt="">
+											</li>
+											
+											<li>
+												<img src="{{ 'logo-mastercard@2x.png' | theme_image_url }}" alt="" width="76" height="46">
+											</li>
+										</ul><!-- /.list-cards -->
+									</div><!-- /.payment-method -->
+								</div><!-- /.four columns -->
+							</div><!-- /.row -->
+
+							<div class="row">
+								<div class="twelve columns">
+									<p class="cancel">Please only click the cancel button blow if you intend to abort the payment process <a href="#" class="button button-grey">Cancel</a></p>
+
+									<h6>FAQ</h6>
+
+									<p class="lock">
+										<i class="ico-lock-green"></i>
+
+										<span>If your browser is not showing the secure padlock on your screen click on this padlock</span>
+									</p>
+								</div><!-- /.twelve columns -->
+							</div><!-- /.row -->
+						</section><!-- /.section-payment-primary -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section-booking section-booking-stage1 -->
+	</div><!-- /.main -->
+{% endblock %}

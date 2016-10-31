@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'head' %}
+<body>
+<div class="wrapper">
+	<header class="header">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns">
+						<div class="header-top-inner">
+							<a href="/" class="logo"><img src="{{ site.metafields.theme.logo }}" alt="" width="226" height="102"></a>
+							<a href="tel:{{ site.metafields.contact_details.phone_number }}" class="phone">
+								<i class="ico-phone-small"></i>
+								<span>{{ site.metafields.contact_details.phone_number }}</span>
+							</a><!-- /.phone -->
+						</div><!-- /.header-top-inner -->
+					</div><!-- /.twelve columns -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->	
+		</div><!-- /.header-top -->
+
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="twelve columns">
+						<div class="header-bottom-inner">
+							<a href="/" class="item-home"><i class="ico-home"></i></a>
+							<nav class="nav">
+								<ul>
+                                    {% for link in contents.navigation %}
+									   <li {% if link.url == '/north-devon-holiday-cottages' %}class="has-drop"{% endif %}>
+										   <a href="{{ link.url }}">
+											   {{ link.title }}
+											   {% if link.url == '/north-devon-holiday-cottages' %}<div class="dd-arrow"></div>{% endif %}
+										   </a>
+
+										   {% if link.url == '/north-devon-holiday-cottages' %}
+										   <ul>
+											   <div class="container">
+												   {% for d in contents.destinations %}
+												   <li><a href="{% path_to: d %}">{{ d.destination_name }}</a></li>
+												   {% endfor %}
+											   </div>
+										   </ul>
+										   {% endif %}
+									   </li>
+                                    {% endfor %}
+								</ul>
+							</nav><!-- /.nav -->
+							<div class="nav-mobile">
+								<div class="nav-mobile-inner">
+									<ul>
+										<li class="search">
+											<a href="search" class="open-search">
+												<i class="ico-search-alt"></i>
+												<span>Search</span>
+											</a>
+										</li>
+										<li class="tel">
+											<a href="tel:{{ site.metafields.contact_details.phone_number }}">
+												<i class="ico-phone-alt"></i>
+												<span>{{ site.metafields.contact_details.phone_number }}</span>
+											</a>
+										</li>
+                                        {% for link in contents.navigation %}
+										  <li {% if link.url == '/north-devon-holiday-cottages' %}class="has-drop"{% endif %}>
+											<a href="{{ link.url }}">
+												{{ link.title }}
+												{% if link.url == '/north-devon-holiday-cottages' %}<div class="dd-arrow"></div>{% endif %}
+											</a>
+										  </li>
+                                        {% endfor %}
+									</ul>
+
+									<ul class="locations-nav">
+										<li><a href="#" class="back"><div class="dd-arrow"></div> Back</a></li>
+										{% for d in contents.destinations %}
+										<li><a href="{% path_to: d %}">{{ d.destination_name }}</a></li>
+										{% endfor %}
+									</ul>
+								</div><!-- /.nav-mobile-inner -->
+							</div><!-- /.nav-mobile -->
+							<!-- <a href="#" class="item-users"><i class="ico-user-alt"></i></a> -->
+							<a href="search" class="item-search open-search"><i class="ico-search"></i></a>
+							<button class="nav-button">
+								<span class="bar"></span>
+								<span class="bar"></span>
+								<span class="bar"></span>
+							</button>
+						</div><!-- /.header-bottom-inner -->
+					</div><!-- /.twelve columns -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.header-bottom -->
+	</header><!-- /.header -->

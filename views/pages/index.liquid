@@ -1,0 +1,149 @@
+---
+title: Home page
+slug: index
+position: 0
+listed: true
+published: true
+is_layout: false
+allow_layout: false
+editable_elements:
+  main/Homepage Header/Homepage Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Homepage Header/Homepage Heading: Holiday cottages in and around Woolacombe,
+    home of the UK's number one beach
+  main/Homepage Header/Link Text: Start Here
+---
+{% if page.slug contains 'booking' %}
+{% include header_small %}
+{% else %}
+{% include 'header' %}
+{% endif %}
+{% block 'main' %}
+    {% block 'Homepage Header' %}
+        <div class="intro intro-home">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Homepage Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="" width="" alt="">
+            </div><!-- /.intro-image -->
+            <div class="intro-content">
+                <div class="container">
+                    <div class="intro-inner">
+                        <h2>{% editable_text 'Homepage Heading', format:raw, rows:1 %}{% endeditable_text %}</h2>
+                        <a href="search" class="button open-search">{% editable_text 'Link Text', format:raw, rows:1 %}{% endeditable_text %}</a>
+                    </div><!-- /.intro-inner -->
+                </div><!-- /.container -->
+            </div><!-- /.intro-content -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+		<section class="section section-locations">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>Highly esteemed locations</h3>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<div class="row">
+                            {% for rp in contents.recommended_properties limit:2 %}
+							<div class="six columns highly-esteemed-cottages" data-id="{{ rp.cottage_id }}">
+
+							</div><!-- /.six columns -->
+                            {% endfor %}
+						</div><!-- /.row -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section section-locations -->
+
+		<section class="section section-categories">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>What are you looking for?</h3>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<div class="row">
+                            {% editable_model property_types %}
+                                {% for pt in contents.property_types %}
+                                    <div class="three columns">
+                                        <div class="category">
+                                        	{% if api_string_filter.blank? %}
+                                            	<a href="{{ pt.link }}">
+                                            {% else %}
+                                            	<a href="/search-results?{{ pt.api_string_filter }}">
+                                            {% endif %}
+                                                <div class="category-image">
+                                                    <img src="{{ pt.image.url }}" height="251" width="290" alt="">
+                                                </div>
+
+                                                <div class="category-content">
+                                                    <h4>{{ pt.name }}</h4>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.category -->
+                                    </div><!-- /.three columns -->
+                                {% endfor %}
+                            {% endeditable_model %}
+						</div><!-- /.row -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section section-categories -->
+
+		<section class="section section-social-feed">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>Social networking</h3>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<div class="row">
+							<div class="six columns">
+								<div class="feed feed-facebook">
+									<div class="feed-head">
+										<h4>Facebook</h4>
+									</div><!-- /.feed-head -->
+
+									<div class="feed-body">
+									</div><!-- /.feed-body -->
+								</div><!-- /.feed feed-facebook -->
+							</div><!-- /.six columns -->
+
+							<div class="six columns">
+								<div class="feed feed-twitter">
+									<div class="feed-head">
+										<h4 class="twit">Twitter</h4>
+									</div><!-- /.feed-head -->
+
+									<div class="feed-body"><!-- /.feed-body -->
+										
+									</div><!-- /.feed-body -->
+								</div><!-- /.feed feed-twitter -->
+							</div><!-- /.six columns -->
+						</div><!-- /.row -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section section-social-feed -->
+	</div><!-- /.main -->
+{% endblock %}
+{% include 'footer' %}
+
+
+
+

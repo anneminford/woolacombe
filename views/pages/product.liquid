@@ -1,0 +1,499 @@
+---
+title: Product
+slug: product
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: A closer look at our beautiful locations
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+        <div class="intro">
+            <div class="intro-image">
+                {% capture header_image %}{% editable_file 'Header Image' %}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+                <img src="{{ header_image }}" height="1050" width="1599" alt="">
+            </div><!-- /.intro-image -->
+            <div class="intro-content">
+                <div class="container">
+                    <div class="intro-inner">
+                        <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+                    </div><!-- /.intro-inner -->
+                </div><!-- /.container -->
+            </div><!-- /.intro-content -->
+        </div><!-- /.intro intro-home -->
+    {% endblock %}
+    <div class="main">
+		<section class="section-product">
+			<div class="container">
+				<div class="section-body">
+					<div class="row">
+						<div class="eight columns">
+							<div class="breadcrumbs">
+								<a href="/">Home</a>
+								<span>&gt;</span>
+								<a href="#">Locations</a>
+								<span>&gt;</span>
+								<a href="#" class="current">Location</a>
+							</div><!-- /.breadcrumbs -->
+							<div class="slider slider-product">
+								<div class="slides owl-carousel">
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+								</div><!-- /.slides -->
+							</div><!-- /.slider -->
+							<div class="slider slider-product-thumbs">
+								<div class="slides owl-carousel">
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+									<div class="slide">
+										<div class="slide-image">
+											<img src="{{ 'slide-thumb1.jpg' | theme_image_url }}" alt="">
+										</div><!-- /.slide-image -->
+									</div><!-- /.slide -->
+								</div><!-- /.slides -->
+							</div><!-- /.slider -->
+							<div class="tabs">
+								<header class="tabs-head">
+									<nav class="tabs-nav">
+										<ul>
+                                            <li class="current"><a href="#tab-description">Description</a></li>
+											<li><a href="#tab-map">Map</a></li>
+											<li><a href="#tab-reviews">Reviews</a></li>
+										</ul>
+									</nav><!-- /.tabs-nav -->
+								</header><!-- /.tabs-head -->
+								
+								<div class="tabs-body">
+									<div class="tab current" id="tab-description">
+										<div class="product-description">
+											<div class="row">
+												<div class="four columns u-pull-right">
+													<ul class="list-icons">
+														<li>
+															<i class="ico-luxury"></i>
+														</li>
+														<li>
+															<i class="ico-romantic"></i>
+														</li>
+														<li>
+															<i class="ico-wifi"></i>
+														</li>
+														<li>
+															<i class="ico-fireplace"></i>
+														</li>
+														<li>
+															<i class="ico-leisure"></i>
+														</li>
+														<li>
+															<i class="ico-amenities"></i>
+														</li>
+														<li>
+															<i class="ico-beach"></i>
+														</li>
+														<li>
+															<i class="ico-pub"></i>
+														</li>
+														<li>
+															<i class="ico-family"></i>
+														</li>
+														<li>
+															<i class="ico-rural"></i>
+														</li>
+													</ul><!-- /.list-icons -->
+												</div><!-- /.four columns -->
+												<div class="eight columns">
+													<h6>Bedrooms</h6>
+													<p>Personal touches throughout this property create a ‘beautiful Home from Home ambiance' Master bedroom 1 is situated downstairs offering a particularly spacious, warm and light suite with a king size bed, open plan dressing area with feature twin basin unit. This bedroom also offers the privacy of a luxury spacious en-suite bathroom with feature roll top bath, walk in wet room shower, contemporary toilet and stylish basin with feature water fall tap. Master bedroom 2 - Upstairs, featuring a unique curving room with plenty of warmth and 5 windows boasting valley views. This perfectly appointed room offers another king size bed and ample wardrobes coupled with the luxury of a walk in 'wet room' with shower, modern basin and toilet. Bedroom 3- a spacious, double height bedroom with twin beds and ample storage, benefitting from views over the back garden and a large Velux window with blackout blinds, ensuring plenty of light and warmth. The family bathroom with bath, sepa</p>
+													<h6>Bathrooms</h6>
+													<p>Family bathroom upstairs with freestanding bath with feature tap, basin, toilet and separate shower. En-suite bathroom off the master bedroom1 offering luxury facilities and contemporary style. The wet room with basin and toilet is located off bedroom two. All bathrooms feature heated towel rails. In addition to the three bathrooms, The Fernery offers an accessible seaside themed downstairs WC.</p>
+													<a href="#" class="link-more">Show more...</a>
+												</div><!-- /.eight columns -->
+											</div><!-- /.row -->											
+										</div><!-- /.product-description -->
+									</div><!-- /.tab -->
+									
+									<div class="tab" id="tab-map">
+										<div class="product-map" id="product-map" data-lat="51.175551" data-lng="-4.194223"></div><!-- /.product-map -->
+									</div><!-- /.tab -->
+									
+									<div class="tab" id="tab-reviews">
+										<div class="product-reviews">
+											<blockquote class="product-review">
+												<cite>Lauren Just</cite>
+												<ol class="list-rating">
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+												</ol><!-- /.list-rating -->
+												<h6>“Beautiful surroundings and a gorgeous property”</h6>
+												<p>we stayed on a four night break and me and my wife loved it , we have already re booked to go back next year. The accommodation is very clean indeed and full of home comforts lovely walks around the estate with lakes /ponds /streams and waterfalls. You will not be disappointed if you book here.</p>
+											</blockquote><!-- /.product-review -->
+											<blockquote class="product-review">
+												<cite>Jim Face</cite>
+												<ol class="list-rating">
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+												</ol><!-- /.list-rating -->
+												<h6>“Never stayed any where like this, lovely location”</h6>
+												<p>Our wedding day was perfect, we married in the summerhouse which was beautifully decorated for the day for us. I didn't have to do a thing come the day as Linda, i believe one of the managers there (apologies Linda if i've got that wrong!) made sure that my guests, my groom and i were all exactly where we needed to be at the right times. Not a single thing went wrong and i wouldn't change anything about the day.</p>
+											</blockquote><!-- /.product-review -->
+											<blockquote class="product-review">
+												<cite>Bob Cold</cite>
+												<ol class="list-rating">
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-full@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+													
+													<li>
+														<img src="{{ 'star-empty@2x.png' | theme_image_url }}" alt="" width="19" height="18">
+													</li>
+												</ol><!-- /.list-rating -->
+												<h6>“Can’t wait to stay here again! Have already booked for next year”</h6>
+												<p>No words can describe properly how perfect Millbrook Cottages are. We stayed in the Wheel Room and had the best week. The grounds are beautiful. The standard of the cottage is exceptional and the welcome from the owners and the animals fantastic. We hired the BBQ hut and the experience was magical. We were made to feel that nothing was too much trouble if it made our stay more enjoyable. Will definitely return provided they can squeeze us in as it gets booked up very quickly.</p>
+											</blockquote><!-- /.product-review -->
+											<a href="#" class="link-more">Show more...</a>
+										</div><!-- /.product-reviews -->
+									</div><!-- /.tab -->
+								</div><!-- /.tabs-body -->
+							</div><!-- /.tabs -->					
+						</div><!-- /.eight columns -->
+						
+						<div class="four columns">
+							<div class="product-overview">
+								<div class="product-overview-bar">
+									<div class="share">
+										<a href="#" class="share-btn">
+											<i class="ico-share"></i>
+										</a>
+										<div class="socials">
+											<ul>
+												<li>
+													<a href="#">
+														<i class="ico-facebook"></i>
+													</a>
+												</li>
+												
+												<li>
+													<a href="#">
+														<i class="ico-google"></i>
+													</a>
+												</li>
+												
+												<li>
+													<a href="#">
+														<i class="ico-email"></i>
+													</a>
+												</li>
+												
+												<li>
+													<a href="#">
+														<i class="ico-pinterest"></i>
+													</a>
+												</li>
+												
+												<li>
+													<a href="#">
+														<i class="ico-twitter"></i>
+													</a>
+												</li>
+											</ul>
+										</div><!-- /.socials -->
+									</div><!-- /.share -->
+								</div><!-- /.product-overview-bar -->
+								<header class="product-overview-head">
+									<h3>The Fernery</h3>
+									<h4>Lee<br />Sleeps 8, Bedrooms: 4</h4>
+									<h6>About the location:</h6>
+									<p>A spacious and contemporary, architect designed, eco home in North Devon The Fernery is a bespoke Four Bedroom Feature Property showcasing contemporary style and design. This stunning, eco friendly property is set in the perfect location to absorb the tranquility yet within easy reach of North Devon's outstanding Coastline and Countryside. Luxury is highlighted throughout The Fernery from the internal design to the hot tub set amongst the tiered decking and garden area.</p>
+									<a href="#" class="link-more">Detailed Description</a>
+								</header><!-- /.product-overview-head -->
+								<div class="product-overview-body">
+									<h6>Date of arrival:</h6>
+									<div class="product-calendar"></div><!-- /.product-calendar -->
+									<h6>Key for calender:</h6>
+									<ul class="list-key">
+										<li>
+											<span class="date-selected">Date Selected</span>
+										</li>
+										<li>
+											<span class="date-unavailable">No longer available</span>
+										</li>
+									</ul><!-- /.list-key -->
+									<div class="row">
+										<div class="eight columns">
+											<h6>Duration of stay:</h6>
+											<ul class="list-radios">
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-3-days">
+														
+														<label class="form-label" for="field-3-days">3 days</label>
+													</div><!-- /.radio -->
+												</li>
+												
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-5-days">
+														
+														<label class="form-label" for="field-5-days">5 days</label>
+													</div><!-- /.radio -->
+												</li>
+												
+												<li>
+													<div class="radio">
+														<input type="radio" name="duration-group" id="field-7-days">
+														
+														<label class="form-label" for="field-7-days">7 days</label>
+													</div><!-- /.radio -->
+												</li>
+											</ul><!-- /.list-radios -->
+										</div><!-- /.eight columns -->
+										<div class="four columns">
+											<h6>Party size:</h6>
+											<input type="text" name="field-party-size" id="field-party-size" class="field" placeholder="1">
+										</div><!-- /.four columns -->
+									</div><!-- /.row -->
+								</div><!-- /.product-overview-body -->
+								<footer class="product-overview-foot">
+									<h3>Price: <span>£450.00</span></h3>
+									<button class="button-orange">Book now</button>
+									<div class="product-special">
+										<h4>Special Offers</h4>
+										<p>20% off Wednesday 10 September 2016<br />10% off Wednesday 10 November 2016<br /><strong>Book now and don’t miss out!</strong></p>
+									</div><!-- /.product-special -->
+								</footer><!-- /.product-overview-foot -->
+							</div><!-- /.product-overview -->
+						</div><!-- /.four columns -->
+					</div><!-- /.row -->
+				</div><!-- /.section-body -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product -->
+		<section class="section section-product-listing section-other">
+			<div class="container">
+				<header class="section-head">
+					<h3>Other properties nearby</h3>
+				</header><!-- /.section-head -->
+				<div class="section-body">
+					<div class="row">
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img5.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Georgeham, North Devon<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img6.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Woolacombe<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img7.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Chichester Park</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img8.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Potting Shed</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+					</div><!-- /.row -->
+				</div><!-- /.section-body -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing -->
+	</div><!-- /.main -->
+{% endblock %}

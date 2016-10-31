@@ -1,0 +1,281 @@
+---
+title: Booking Stage 1
+slug: booking-stage-1
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Page Header Image: "/samples/pages/intro-home-image.jpg"
+---
+{% extends parent %}
+{% block main %}
+{% block 'Page Header' %}
+<div class="intro intro-small">
+	<div class="intro-image">
+		{% capture header_image %}{% editable_file 'Page Header Image' %}{% endeditable_file %}{% endcapture %}
+		<img src="{{ header_image }}" height="1050" width="1599" alt="">
+	</div><!-- /.intro-image -->
+</div><!-- /.intro intro-home -->
+{% endblock %}
+<div class="main">
+	<section class="section-booking section-booking-stage1">
+		<div class="container">
+			<div class="section-inner">
+				<header class="section-head">
+					<div class="row">
+						<div class="twelve columns">
+							<h3>Booking - <span>Step 1</span></h3>
+
+							<a href="#" class="back" onClick="history.back();return false;">&lt; Return &amp; Cancel Booking</a>
+						</div><!-- /.twelve columns -->
+					</div><!-- /.row -->
+				</header><!-- /.section-head -->
+
+				<div class="section-body">
+					<ol class="list-booking-steps">
+						<li class="current">Your details</li>
+
+						<li>Payment details</li>
+
+						<li>Confirmation</li>
+					</ol><!-- /.list-booking-steps -->
+
+					<section class="section-booking-inner">
+						<header class="section-head">
+							<h4>Your booking</h4>
+						</header><!-- /.section-head -->
+
+						<div class="section-body">
+							<div class="row">
+								<div class="four columns">
+									<section class="section-booking-details">
+										<div class="cottage-image"></div>
+
+										<h4 class="cottage-title"></h4>
+
+										<h6 class="cottage-town"></h6>Sleeps: <span class="cottage-sleeps"></span>, Bedrooms: <span class="cottage-beds"></span>
+										<div class="cottage-icons"></div>
+										<!-- /.list-icons -->
+
+										<p class="total">
+											Total:
+
+											<span></span>
+										</p><!-- /.total -->
+										<img src="{{ 'sage-pay.png' | theme_image_url }}"  height="58" width="100" alt="Secured by Sage Pay" class="test">
+									</section><!-- /.section-booking-details -->
+								</div><!-- /.four columns -->
+
+								<div class="eight columns">
+									<div class="form form-details">
+										<form action="?" method="post" id="register-form">
+											<div class="form-body">
+												<section class="form-section">
+													<div id="errorContainer">Please review the required form fields below:</div>
+													<header class="form-section-head">
+														<div class="row">
+															<div class="twelve columns">
+																<h4>Your details</h4>
+															</div><!-- /.twelve columns -->
+														</div><!-- /.row -->
+													</header><!-- /.form-section-head -->
+
+													<div class="form-section-body">
+														<div class="row"><div class="six columns">
+															<label for="title" class="form-label">Title:</label>
+
+															<div class="form-controls">
+																<select name="customer[title]" id="title" class="field" tabindex="1">
+																	<option value="sel" class="sel">Please select</option>
+																	<option value="Mr">Mr</option>
+																	<option value="Mrs">Mrs</option>
+																	<option value="Ms">Ms</option>
+																	<option value="Miss">Miss</option>
+																	<option value="Master">Master</option>
+																</select>
+															</div>
+
+
+
+															<!-- /.form-controls -->
+														</div><!-- /.six columns -->
+														</div>
+														<div class="row">
+															<div class="six columns">
+																<label for="firstname" class="form-label">First name:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[firstName]" id="firstname" class="field" tabindex="2">
+																</div>
+																<label for="address1" class="form-label">Address line 1:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[addr1]" id="address1" class="field" tabindex="4">
+																</div>
+																<label for="city" class="form-label">Town/City:</label>
+																<div class="form-controls">
+																	<input type="text" name="customer[town]" id="city" class="field" tabindex="6">
+																</div>
+																<label for="postcode" class="form-label">Postcode:</label>
+																<div class="form-controls">
+																	<input type="text" name="customer[postcode]" id="postcode" class="field" tabindex="8">
+																</div>
+																<label for="phone" class="form-label">Phone number:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[phone]" id="phone" class="field" tabindex="10">
+																</div>
+																<!-- /.form-controls -->
+															</div><!-- /.six columns -->
+
+															<div class="six columns">
+																<label for="surname" class="form-label">Surname:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[surname]" id="surname" class="field" tabindex="3">
+																</div>
+																<label for="address2" class="form-label">Address line 2:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[addr2]" id="address2" class="field" tabindex="5">
+																</div>
+																<label for="county" class="form-label">County:</label>
+																<div class="form-controls">
+																	<input type="text" name="customer[county]" id="county" class="field" tabindex="7">
+																</div>
+																<label for="country" class="form-label">Country:</label>
+																<div class="form-controls">
+																	<input type="text" name="customer[country]" id="country" class="field" tabindex="9">
+																</div>
+																<label for="email" class="form-label">Email:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="customer[email]" id="email" class="field" tabindex="11">
+																</div><!-- /.form-controls -->
+															</div><!-- /.six columns -->
+														</div><!-- /.row -->
+
+
+													</div><!-- /.form-section-body -->
+												</section><!-- /.form-section -->
+
+												<section class="form-section" id="party-addition-section">
+													<!-- /.form-section-head -->
+
+													<div class="form-section-body party-addition" id="1">
+														<header class="form-section-head">
+															<h4>Party details</h4>
+														</header>
+														<div class="row">
+															<div class="six columns">
+																<label for="titleparty" class="form-label">Title:</label>
+
+																<div class="form-controls">
+																	<select name="party[0][title]" id="titleparty" class="field" tabindex="">
+																		<option value="sel" class="sel">Please select</option>
+																		<option value="Mr">Mr</option>
+																		<option value="Mrs">Mrs</option>
+																		<option value="Ms">Ms</option>
+																		<option value="Miss">Miss</option>
+																		<option value="Master">Master</option>
+																	</select>
+																</div>
+																<label for="surnameparty" class="form-label">Surname:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="party[0][surname]" id="surnameparty" class="field" tabindex="">
+																</div><!-- /.form-controls -->
+
+															</div><!-- /.six columns -->
+
+															<div class="six columns">
+																<label for="firstnameparty" class="form-label">First name:</label>
+
+																<div class="form-controls">
+																	<input type="text" name="party[0][firstName]" id="firstnameparty" class="field firstnameparty" tabindex="">
+																</div><!-- /.form-controls -->
+																<label for="ageparty" class="form-label">Age:</label>
+
+																<div class="form-controls">
+																	<select name="party[0][age]" id="partyage" class="field ageparty" tabindex="">
+																		<option value="sel" class="sel">Please select</option>
+																		<option value="17">0-18</option>
+																		<option value="35">19-35</option>
+																		<option value="54">36-54</option>
+																		<option value="64">55-65</option>
+																		<option value="65">66+</option>
+																	</select>
+																</div><!-- /.six columns -->
+															</div><!-- /.row -->
+
+
+															<div class="six columns">
+																<!-- <label for="typeparty" class="form-label">Type:</label> -->
+
+																<div class="form-controls">
+																	<input type="text" name="party[0][type]" id="partytype" class="field typeparty">
+																</div>
+
+																<!-- /.form-controls -->
+															</div><!-- /.six columns -->
+														</div><!-- /.row -->
+													</div><!-- /.form-section-body -->
+
+													<div class="form-section-actions">
+														<a href="#" class="remove-member" style="display: none;">- Remove this party member</a>
+														<!-- <br /> -->
+														<a href="#" class="copy-member">+ Add another party member</a>
+													</div><!-- /.form-section-actions -->
+												</section><!-- /.form-section -->
+
+												<section class="form-section">
+													<div class="row">
+														<div class="six columns">
+															<header class="form-section-head">
+																<h4>Extras</h4>
+															</header><!-- /.form-section-head -->
+
+															<div class="form-section-body">
+																<div class="form-controls">
+																	<textarea cols="30" rows="10" class="textarea" name="extras"></textarea>
+																</div><!-- /.form-controls -->
+															</div><!-- /.form-section-body -->
+														</div><!-- /.six columns -->
+
+														<div class="six columns">
+															<header class="form-section-head">
+																<h4>Additional information</h4>
+															</header><!-- /.form-section-head -->
+
+															<div class="form-section-body">
+																<div class="form-controls">
+																	<textarea cols="30" rows="10" class="textarea" name="additional_info"></textarea>
+																</div><!-- /.form-controls -->
+															</div><!-- /.form-section-body -->
+														</div><!-- /.six columns -->
+													</div><!-- /.row -->
+												</section><!-- /.form-section -->
+											</div><!-- /.form-body -->
+
+											<div class="form-actions">
+												<a href="#" class="to-property-page" onClick="history.back();return false;">
+													<i class="ico-triangle-left-dark"></i>
+
+													<span>Back to property page</span>
+												</a>
+
+												<button type="submit" class="button button-green">Continue to next step</button>
+											</div><!-- /.form-actions -->
+										</form>
+									</div><!-- /.form form-details -->
+								</div><!-- /.eight columns -->
+							</div><!-- /.row -->
+						</div><!-- /.section-body -->
+					</section><!-- /.section-booking -->
+				</div><!-- /.section-body -->
+			</div><!-- /.section-inner -->
+		</div><!-- /.container -->
+	</section><!-- /.section-booking section-booking-stage1 -->
+</div><!-- /.main -->
+{% endblock %}

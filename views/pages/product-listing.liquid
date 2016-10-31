@@ -1,0 +1,295 @@
+---
+title: Products Listing Page
+slug: product-listing
+position: 99
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: All available locations
+---
+{% extends parent %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+        <div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image' %}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+            <img src="{{ header_image }}" height="1050" width="1599" alt="">
+        </div><!-- /.intro-image -->
+
+        <div class="intro-content">
+            <div class="container">
+                <div class="intro-inner">
+                    <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+                </div><!-- /.intro-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.intro-content -->
+    </div><!-- /.intro intro-home -->
+    {% endblock %}
+
+    <div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#" class="current">Locations</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn"><i class="ico-share"></i></a>
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+
+		<section class="section-product-listing">
+			<div class="container">
+				<div class="section-body">
+					<div class="row">
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img1.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Fernery</h4>
+									<h6>Lee<br />Sleeps 8, Bedrooms: 4<br />£270.00</h6>
+									<p>A spacious and contemporary, architect designed, eco home in North Devon The Fernery is a bespoke Four Bedroom Feature Property showcasing contemporary </p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img2.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Stables</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£270.00</h6>
+									<p>Sensational four bedroom property, occupying an elevated position above Woolacombe, exaggerating the coastal views, best appreciated from the sea</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img3.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Glebe Barn</h4>
+									<h6>Georgeham, North Devon<br />Sleeps 2, Bedrooms: 1<br />£240.00</h6>
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img4.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Pippin Cottage</h4>
+									<h6>Willingcott<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+					</div><!-- /.row -->
+
+					<div class="row">
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img5.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Georgeham, North Devon<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Quaint three bedroom cottage in the heart of Georgeham, within walking distance of village amenities. This cottage creates a cosy feeling through</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img6.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Woolacombe<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Sensational Three Bedroom Detached Property, showcasing luxury and contemporary style. Offering coastal views from the sun trap garden and patio.</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img7.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Chichester Park</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+									<p>Popular spacious four bedroom detached property within walking distance of Woolacombe Beach and Village, lovely garden areas and sea views from the </p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img8.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Potting Shed</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+									<p>Delightful One Bedroom Detached Romantic Retreat. Set in peaceful grounds with countryside views, within walking distance of amenities</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+					</div><!-- /.row -->
+
+					<div class="row">
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img1.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Fernery</h4>
+									<h6>Lee<br />Sleeps 8, Bedrooms: 4<br />£270.00</h6>
+									<p>A spacious and contemporary, architect designed, eco home in North Devon The Fernery is a bespoke Four Bedroom Feature Property showcasing contemporary </p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img2.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Stables</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£270.00</h6>
+									<p>Sensational four bedroom property, occupying an elevated position above Woolacombe, exaggerating the coastal views, best appreciated from the sea</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img3.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Glebe Barn</h4>
+									<h6>Georgeham, North Devon<br />Sleeps 2, Bedrooms: 1<br />£240.00</h6>
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img4.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Pippin Cottage</h4>
+									<h6>Willingcott<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Picturesque barn conversion oozing with character. Many original features including flagstone walls, exposed beams etc. Easy walking distance of all</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+					</div><!-- /.row -->
+
+					<div class="row">
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img5.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Georgeham, North Devon<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Quaint three bedroom cottage in the heart of Georgeham, within walking distance of village amenities. This cottage creates a cosy feeling through</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img6.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Hive Cottage</h4>
+									<h6>Woolacombe<br />Sleeps 6, Bedrooms: 3<br />£240.00</h6>
+									<p>Sensational Three Bedroom Detached Property, showcasing luxury and contemporary style. Offering coastal views from the sun trap garden and patio.</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img7.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>Chichester Park</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+									<p>Popular spacious four bedroom detached property within walking distance of Woolacombe Beach and Village, lovely garden areas and sea views from the </p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+
+						<div class="three columns">
+							<div class="product-item">
+								<a href="#">
+									<img src="{{ 'product-item-img8.jpg' | theme_image_url }}" height="251" width="290" alt="">
+									<h4>The Potting Shed</h4>
+									<h6>Woolacombe<br />Sleeps 8, Bedrooms: 4<br />£240.00</h6>
+									<p>Delightful One Bedroom Detached Romantic Retreat. Set in peaceful grounds with countryside views, within walking distance of amenities</p>
+								</a>
+							</div><!-- /.product-item -->
+						</div><!-- /.three columns -->
+					</div><!-- /.row -->
+				</div><!-- /.section-body -->
+
+				<div class="section-paging">
+				    <div class="paging">
+				    	<a href="#" class="paging-prev">&lt;</a>
+				    	
+				    	<ul>
+                            <li class="current"><a href="#">1</a></li>
+				    	    <li><a href="#">2</a></li>
+				    	    <li><a href="#">3</a></li>
+				    	    <li><a href="#">4</a></li>
+				    	    <li><a href="#">5</a></li>
+				    	</ul>
+				    	
+				    	<a href="#" class="paging-next">&gt;</a>
+				    </div><!-- /.paging -->
+				</div><!-- /.section-paging -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing -->
+
+		<section class="section section-categories section-categories-secondary">
+			<div class="container">
+				<div class="section-inner">
+					<header class="section-head">
+						<div class="row">
+							<div class="twelve columns">
+								<h3>What are you looking for?</h3>
+							</div><!-- /.twelve columns -->
+						</div><!-- /.row -->
+					</header><!-- /.section-head -->
+
+					<div class="section-body">
+						<div class="row">
+                            {% editable_model property_types %}
+                                {% for pt in contents.property_types %}
+                                    <div class="three columns">
+                                        <div class="category">
+                                            <a href="{{ pt.link }}">
+                                                <div class="category-image">
+                                                    <img src="{{ pt.image.url }}" height="251" width="290" alt="">
+                                                </div>
+
+                                                <div class="category-content">
+                                                    <h4>{{ pt.name }}</h4>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.category -->
+                                    </div><!-- /.three columns -->
+                                {% endfor %}
+                            {% endeditable_model %}
+						</div><!-- /.row -->
+					</div><!-- /.section-body -->
+				</div><!-- /.section-inner -->
+			</div><!-- /.container -->
+		</section><!-- /.section section-categories -->
+	</div><!-- /.main -->
+{% endblock %}
+
+
+
+

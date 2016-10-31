@@ -1,0 +1,39 @@
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-inner">
+				<div class="footer-col footer-col-size1">
+					<nav class="nav-footer">
+						<ul>
+                            {% for link in contents.footer_navigation limit:4 %}
+				                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+						</ul>
+					</nav><!-- /.nav -->
+				</div><!-- /.footer-col footer-col-size1 -->
+				<div class="footer-col footer-col-size2">
+					<nav class="nav-footer">
+						<ul>
+                            {% for link in contents.footer_navigation offset:4 %}
+                                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+						</ul>
+					</nav><!-- /.nav -->
+				</div><!-- /.footer-col footer-col-size2 -->
+				<div class="footer-col footer-col-size3">
+					<div class="footer-contacts">
+						<p class="address">{{ site.metafields.contact_details.address }}</p><!-- /.address -->
+						<p class="phone">
+							<a href="tel:{{ site.metafields.contact_details.phone_number }}">Tel/Fax: {{ site.metafields.contact_details.phone_number }}</a>
+						</p><!-- /.phone -->
+						<p class="email">
+							<a href="mailto:{{ site.metafields.contact_details.email }}">{{ site.metafields.contact_details.email }}</a>
+						</p><!-- /.email -->
+					</div><!-- /.footer-contacts -->
+				</div><!-- /.footer-col footer-col-size3 -->
+				<p class="copyright">{{ site.metafields.theme.footer_copyright }}</p><!-- /.copyright -->
+			</div><!-- /.footer-inner -->
+		</div><!-- /.container -->
+	</footer><!-- /.footer -->
+</div><!-- /.wrapper -->
+</body>
+</html>

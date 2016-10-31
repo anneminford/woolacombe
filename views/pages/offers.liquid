@@ -1,0 +1,98 @@
+---
+title: Offers
+slug: offers
+position: 5
+listed: true
+published: true
+is_layout: false
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: North Devon Holiday Cottages Offers
+  main/Footer Heading: Saunton Holiday Accomodation
+  main/Footer Content: "<p>Saunton beach and the surrounding area is magnificent,
+    with high hills on the North side overlooking Saunton Golf Course, Braunton Burrows,
+    Crow Point and Saunton Beach. A favourite to many is the tranquil Crow Point and
+    surrounding area, far way from any crowds. Great for fishing sea bass and sea
+    activities in the summer months. There is plenty to do on Saunton beach itself,
+    restaurant, cafe, plenty to hire, surfboards, kayaks, stand up surfboards and
+    deck chairs! Book your cottage in Saunton with us.<br></p>"
+---
+{% extends parent %}
+
+{% block main %}
+    {% block 'Page Header' %}
+    <div class="intro">
+		<div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+			<img src="{{ header_image }}" height="1050" width="1599" alt="">
+		</div><!-- /.intro-image -->
+
+		<div class="intro-content">
+			<div class="container">
+				<div class="intro-inner">
+					<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+				</div><!-- /.intro-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.intro-content -->
+	</div><!-- /.intro intro-home -->
+    {% endblock %}
+
+	<div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#">Locations</a>
+						<span>&gt;</span>
+						<a href="#" class="current">Saunton Holiday Cottages</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+
+		<section class="section-product-listing-alt">
+			<div class="container">
+				<div class="row">
+					<div class="three columns">
+						<aside class="section-sidebar">
+							<div class="section-sidebar-body">
+								{% include 'filters' %}
+							</div><!-- /.section-sidebar-body -->
+
+							<div class="section-sidebar-actions">
+								<a href="#" class="toggle-search" data-closed-text="Show Advanced Search" data-opened-text="Hide Advanced Search"></a>
+							</div><!-- /.section-sidebar-actions -->
+						</aside><!-- /.section-sidebar -->
+					</div><!-- /.three columns -->
+
+					<div class="nine columns">
+						<div class="section-body search-by-offers search-results">
+						</div><!-- /.section-body -->
+					</div><!-- /.nine columns -->
+				</div><!-- /.row -->
+
+				<div class="section-paging">
+				</div><!-- /.section-paging -->
+
+				<div class="section-outro">
+					<h4>{% editable_text 'Footer Heading', format:raw, rows:1 %}{% endeditable_text %}</h4>
+                    {% editable_text 'Footer Content' %}{% endeditable_text %}
+				</div><!-- /.section-outro -->
+			</div><!-- /.container -->
+		</section><!-- /.section-product-listing-alt -->
+	</div><!-- /.main -->
+{% endblock %}
+
+
+
+

@@ -1,0 +1,123 @@
+---
+title: Product area listing
+slug: content_type_template
+handle: destinations
+position: 99
+listed: true
+published: true
+is_layout: false
+content_type: destinations
+editable_elements:
+  main/Page Header/Header Image: "/samples/pages/intro-home-image-1.jpg"
+  main/Page Header/Page Heading: Product area listing
+---
+{% extends parent %}
+{% block 'main' %}
+<script type="text/javascript">
+window.location_code = '{{destination.location_code}}';
+</script>
+    {% block 'Page Header' %}
+  <div class="intro">
+  <div class="intro-image"> {% capture header_image %}{% editable_file 'Header Image' %}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %} <img src="{{ header_image }}" height="1050" width="1599" alt=""> </div>
+  <!-- /.intro-image -->
+  
+  <div class="intro-content">
+      <div class="container">
+      <div class="intro-inner">
+          <h3>{{ destination.destination_name }}</h3>
+        </div>
+      <!-- /.intro-inner --> 
+    </div>
+      <!-- /.container --> 
+    </div>
+  <!-- /.intro-content --> 
+</div>
+  <!-- /.intro intro-home --> 
+  {% endblock %}
+  <div class="main">
+  <div class="breadcrumbs-bar">
+      <div class="container">
+      <div class="breadcrumbs-bar-inner">
+          <div class="breadcrumbs"> <a href="/">Home</a> <span>&gt;</span> <a href="/north-devon-holiday-cottages">Locations</a> <span>&gt;</span> <a href="#" class="current">{{ destination.destination_name }} Holiday Cottages</a> </div>
+          <!-- /.breadcrumbs -->
+          
+          <div class="share"> <a href="#" class="share-btn"> <i class="ico-share"></i> </a>
+              {% include 'socials' %}
+        </div>
+          <!-- /.share --> 
+        </div>
+      <!-- /.breadcrumbs-bar-inner --> 
+    </div>
+      <!-- /.container --> 
+    </div>
+  <!-- /.breadcrumbs -->
+  
+  <section class="section-product-listing-alt">
+      <div class="container">
+      <div class="row">
+          <div class="three columns">
+          <aside class="section-sidebar">
+              <div class="section-sidebar-body">
+              {% include 'filters' %}
+            </div>
+              <!-- /.section-sidebar-body -->
+              
+              <div class="section-sidebar-actions"> <a href="#" class="toggle-search" data-closed-text="Show Advanced Search" data-opened-text="Hide Advanced Search"></a> </div>
+              <!-- /.section-sidebar-actions --> 
+            </aside>
+          <!-- /.section-sidebar --> 
+        </div>
+          <!-- /.three columns -->
+          
+          <div class="nine columns">
+          <div class="section-body search-by-location search-results">
+            <div class="section-outro">
+              <h4>{{ destination.destination_name }} Holiday Accomodation</h4>
+              {{ destination.content }}
+            </div>
+          <!-- /.section-outro --> 
+{% comment %}
+{% consume properties from 'bookings.woolacombe-cottages.co.uk/index.php?type=search_properties_by_location&location=MORTE' %}
+	{% for property in properties.results %}
+              <div class="product-item">
+              <div class="product-item-image"> <a href="#"> <img src="{{ 'product-item-img1.jpg' | theme_image_url }}" height="251" width="290" alt=""> </a> </div>
+              <!-- /.product-item-image -->
+              
+              <div class="product-item-content">
+                  <h4>{{property.name}}</h4>
+                  <h6>{{property.address.town}}<br>
+                  Sleeps {{property.accommodates}}, Bedrooms: {{property.bedrooms}}<br>
+                  {{property.brands.WO.pricing.ranges.2017.low}} to {{property.brands.WO.pricing.ranges.2017.high}}</h6>
+                  <p>{{property.WO.description}}</p>
+                  <ul class="list-icons">
+                  {{property.attributes}}
+                </ul>
+                  <a href="#" class="button button-black">Viewing &amp; Booking</a> </div>
+              <!-- /.product-item-content --> 
+            </div>
+	{% endfor %}
+{% endconsume %}
+{% endcomment %}
+</div>
+          <!-- /.section-body --> 
+        </div>
+          <!-- /.nine columns --> 
+        </div>
+      <!-- /.row -->
+      
+      <div class="section-paging">
+      </div>
+      <!-- /.section-paging -->
+      
+      <!-- <div class="section-outro">
+          <h4>{{ destination.destination_name }} Holiday Accomodation</h4>
+          {{ destination.content }}
+        </div> -->
+      <!-- /.section-outro --> 
+    </div>
+      <!-- /.container --> 
+    </section>
+  <!-- /.section-product-listing-alt --> 
+</div>
+  <!-- /.main --> 
+  {% endblock %} 
