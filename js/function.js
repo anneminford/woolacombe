@@ -1,7 +1,7 @@
+
 function reset_focus() {
 	$("body, html").animate({ 
-            scrollTop: $('.intro-inner').offset().top;
-            console.log('testing');
+        scrollTop: $('.intro-inner').offset().top
     }, 600);
 }
 
@@ -575,17 +575,10 @@ function get_results_by_page(page, offers) {
 				$('.booking-price').text('£0.00');
 				$('.product-overview-foot button').attr('disabled', true);
 				$('.button-orange').text('Contact us for a quote');
-				$('.error').html('Select an available date to see pricings.').show();
+				$('.error').html('Select an available date to see pricing.').show();
 				return false;
 			};
 			
-		    $(".radio input:radio").change(function () {
-		        if ($('.booking-price').text('£0.00')) {
-		            $('.button-orange').text('Contact us for a quote');
-		        }
-    		});
-			
-
 			data.type = 'booking_enquiry';
 
 			$.ajax({
@@ -594,16 +587,17 @@ function get_results_by_page(page, offers) {
 				dataType: 'jsonp',
 				data: data,
 				success: function(data) {
-					// $('.product-overview-foot button').removeAttr('disabled');
+					$('.product-overview-foot button').removeAttr('disabled');
 					$('.error').hide();
 
 					if(data.errorCode) {
 						$('.product-overview-foot button').attr('disabled', true);
-						return $('.error').html(data.errorDescription).show();
-						 $('.button-orange').text('Contact us for a quotes');
-						 $('.booking-price').css('display', 'none');
-					}
-					$('.button-orange').text('Book nows');
+						$('.booking-price').css('display', 'none');
+						$('.button-orange').text('Contact us for a quote');
+						return $('.error').html(data.errorDescription).show().text('Contact us for a quote'); 
+					};
+					$('.button-orange').text('Book now');
+					$('.booking-price').css('display', 'block');
 					$('.booking-price').text('£'+data.price.totalPrice);
 				}
 			});

@@ -1,7 +1,6 @@
 function reset_focus() {
 	$("body, html").animate({ 
-            scrollTop: $('.intro-inner').offset().top;
-            console.log('testing');
+            scrollTop: $('.intro-inner').offset().top 
     }, 600);
 }
 
@@ -27,6 +26,10 @@ function roll_out_properties(properties) {
 	/* Loop through the data, generating a HTML template using data from the object (named v in this case) */
 	$('.search-results').fadeOut(function() {
 		$('.search-results .product-item').remove();
+
+		if(properties.length) {
+
+
 		$.each(properties, function(i, v) {
 			if(window.advanced) {	
 				window.all_facilities = true;
@@ -106,6 +109,9 @@ function roll_out_properties(properties) {
 		});
 		reset_focus();
 		$('.search-results').fadeIn();
+		} else {
+			$('.search-results').css('display','block').prepend('<h4>No results found</h4');
+		};
 	});
 } 	
 
@@ -222,7 +228,7 @@ function get_results_by_page(page, offers) {
 
 			get_results_by_page(1, offers);
 			window.advanced = false;
-
+			// search results page advanced search
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
 			      $('#field-party-size').val('').prop('disabled', true);
@@ -231,6 +237,20 @@ function get_results_by_page(page, offers) {
 			     $('#field-party-size').val('1').prop('disabled', false);
 			     console.log('unchecked');
 			   }
+			});
+			// overlay search
+			$( "body" ).on( "change", "#no-size-popup", function(e) {
+			    e.preventDefault();
+			    console.log('delegated event');
+			    if ($('#no-size-popup').is(':checked') == true){
+			      $('.list-radios-secondary input').val('').prop('disabled', true);
+			      console.log('This is checked');
+			      $('.list-radios-secondary label').addClass('fadeRadio');
+			   }  else {
+			     $('.list-radios-secondary input').val('1').prop('disabled', false);
+			     console.log('unchecked');
+			     $('.list-radios-secondary label').removeClass('fadeRadio');
+			   };
 			});
 
 			$('.search-by-location-advanced').click(function(e) {
@@ -575,14 +595,20 @@ function get_results_by_page(page, offers) {
 				$('.booking-price').text('£0.00');
 				$('.product-overview-foot button').attr('disabled', true);
 				$('.button-orange').text('Contact us for a quote');
-				$('.error').html('Select an available date to see pricings.').show();
+				// $('span.booking-price').css('display', 'none');
+				$('.error').html('Select an available date to see pricing.').show();
 				return false;
+				
 			};
+
 			
 		    $(".radio input:radio").change(function () {
 		        if ($('.booking-price').text('£0.00')) {
 		            $('.button-orange').text('Contact us for a quote');
-		        }
+		            // $('span.booking-price').css('display', 'none');
+		        } else {
+		        	// $('span.booking-price').css('display', 'block');
+		        };
     		});
 			
 
@@ -594,16 +620,14 @@ function get_results_by_page(page, offers) {
 				dataType: 'jsonp',
 				data: data,
 				success: function(data) {
-					// $('.product-overview-foot button').removeAttr('disabled');
+					$('.product-overview-foot button').removeAttr('disabled');
 					$('.error').hide();
 
 					if(data.errorCode) {
 						$('.product-overview-foot button').attr('disabled', true);
 						return $('.error').html(data.errorDescription).show();
-						 $('.button-orange').text('Contact us for a quotes');
-						 $('.booking-price').css('display', 'none');
 					}
-					$('.button-orange').text('Book nows');
+					$('.button-orange').text('Book now');
 					$('.booking-price').text('£'+data.price.totalPrice);
 				}
 			});
