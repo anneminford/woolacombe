@@ -331,21 +331,13 @@ $(document).ready(function() {
 								var date_string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 								return [data.calendar[date_string].available];
 							}
-						});
-					}
 
-					// init datepicker for the cottage page
-					if( $('.product-calendar-cott').length ) {
-						$('.product-calendar-cott').datepicker({
-							dayNamesMin: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
-							firstDay: 1,
-							minDate: '+1',
-							defaultDate: '+1',
-							beforeShowDay: function(date){
-								var date_string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-								return [data.calendar[date_string].available];
-							}
 						});
+						console.log('this is my datepicker');
+						if(getUrlVar('date')) {
+							$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+							$('.product-calendar.cottageDate').datepicker('setDate', new Date(getUrlVar('date')));
+						}
 					}
 
 					// Init Map
