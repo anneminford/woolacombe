@@ -1,4 +1,4 @@
-console.log('test');
+
 function reset_focus() {
 	$("body, html").animate({ 
         scrollTop: $('.intro-inner').offset().top
@@ -234,11 +234,12 @@ function get_results_by_page(page, offers) {
 			});
 
 				// overlay search
-			$( "body" ).on( "change", "#no-size-popup", function(e) {
+			$('body').on('change', '#no-size-popup', function(e) {
 				    e.preventDefault();
-			    console.log('delegated event');
+			    
 	 		    if ($('#no-size-popup').is(':checked') == true){
-	 			      $('.list-radios-secondary input').val('').prop('disabled', true);
+	 		    	console.log('delegated event');
+	 			      $('.list-radios-secondary input').val('').prop('disabled', true).attr('checked', false);
 			      console.log('This is checked');
 			      $('.list-radios-secondary label').addClass('fadeRadio');
 			   }  else {
