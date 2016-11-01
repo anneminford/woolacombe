@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	$('body').on('change', '#no-size-popup', function(e) {
 		e.preventDefault();	
 		if ($('#no-size-popup').is(':checked') == true){
@@ -11,12 +10,9 @@ $(document).ready(function() {
 		};
 	});
 
-
-	
-$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
 	if(getUrlVar('date')) {
 		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-		$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+		$('.product-calendar.cottageDate').datepicker('setDate', new Date(getUrlVar('date')));
 	}
 
 	if(getUrlVar('duration')) {
@@ -338,6 +334,20 @@ $('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
 						});
 					}
 
+					// init datepicker for the cottage page
+					if( $('.product-calendar-cott').length ) {
+						$('.product-calendar-cott').datepicker({
+							dayNamesMin: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
+							firstDay: 1,
+							minDate: '+1',
+							defaultDate: '+1',
+							beforeShowDay: function(date){
+								var date_string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+								return [data.calendar[date_string].available];
+							}
+						});
+					}
+
 					// Init Map
 					if ( $('.product-map').length ) {
 						var map;
@@ -441,25 +451,7 @@ $('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
 				});
 			});
 
-	// if(getUrlVar('date')) {
-	// 	$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-	// 	$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-	// }
-
-	// if(getUrlVar('duration')) {
-	// 	$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
-	// 	$('input[name="duration-group"][value="'+getUrlVar('duration')+'"]').attr('data-checked', 'checked');
-	// }
-
-	// if(getUrlVar('partysizemax')) {
-	// 	$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
-	// 	$('input[name="field-party-size"]').val(getUrlVar('partysizemax'));
-	// }
-
-	// if(getUrlVar('status')==='invalid') {
-	// 	$('.section-thanks header').hide();
-	// 	$('.section-thanks.error').show();
-	// 	$('.section-thanks.error p span.reason').text(getUrlVar('reason'));
-	// }
-
+if ($('.hasDatepicker').length > 0) { 
+    console.log('date picker loaded')
+}
 });
