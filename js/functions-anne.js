@@ -408,14 +408,18 @@ $(document).ready(function() {
 
 	if(getUrlVar('date')) {
 		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+		$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
 	}
 
 	if(getUrlVar('duration')) {
-		$('.form-advanced-search input[name="duration-group"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
+		$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
+
 	}
 
 	if(getUrlVar('partysizemax')) {
-		$('.form-advanced-search input[name="field-party-size"]').val(getUrlVar('partysizemax'));
+		$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
+		$('.product-overview-body input[name="field-party-size"]').val(getUrlVar('partysizemax'));
+
 	}
 
 	if(getUrlVar('status')==='invalid') {

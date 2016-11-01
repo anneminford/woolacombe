@@ -225,9 +225,9 @@ function get_results_by_page(page, offers) {
 
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
-			      $('#field-party-size').val('').prop('disabled', true);
+			      $('#partysizemax').val('').prop('disabled', true);
 			   } else {
-			     $('#field-party-size').val('1').prop('disabled', false);
+			     $('#partysizemax').val('1').prop('disabled', false);
 			   }
 			});
 
