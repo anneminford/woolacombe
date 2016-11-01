@@ -132,17 +132,16 @@ $(document).ready(function() {
 
         // Advanced search construct url for cottage page
 
-		$('.product-item-content a').each(function(e) {
-			$(this).on("click", function(){
-			var cottageid = ($(this).attr('href') + '?' + 'date=');
-		  	// alert(cottageid);
-		  	var results = $('.form-advanced-search form').serialize();
-	    	var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
+		$(document).on('click','.product-item-content a', function(e) {
+			e.preventDefault();
 			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-			var url = cottageid + datepicker_date + '&' + results;
-			alert(url);
+			var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
+			var results = $('.form-advanced-search form').serialize();
+			var cottageid = ($(this).attr('href') + '?' + 'date=' + datepicker_date + '&' + results);
+		  	alert(cottageid);
+			window.location.href = cottageid;
 		});
-		});
+
 
     if($('.slider-product').length || $('.section-booking').length ) {
 		$.ajax({ /* We make our ajax call to get the objects from the search back. */
