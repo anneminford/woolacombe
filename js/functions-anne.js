@@ -132,16 +132,18 @@ $(document).ready(function() {
 
         // Advanced search construct url for cottage page
 
-		$(document).on('click','.product-item-content a', function(e) {
+		$(document).on('click','.product-item-content a', function(e) {			
 			e.preventDefault();
+			var hash = $(this).attr('href').split('#')[1];
 			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 			var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
 			var results = $('.form-advanced-search form').serialize();
-			var cottageid = ($(this).attr('href') + '?' + 'date=' + datepicker_date + '&' + results);
-		  	alert(cottageid);
+			var cottageid = ('/cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
 			window.location.href = cottageid;
 		});
 
+		
+// http://213.187.241.51:3333/cottage#IVY_WO?date=11/02/2016&duration-group=3&field-party-size=1
 
     if($('.slider-product').length || $('.section-booking').length ) {
 		$.ajax({ /* We make our ajax call to get the objects from the search back. */

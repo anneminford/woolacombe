@@ -235,13 +235,10 @@ function get_results_by_page(page, offers) {
 			$('body').on('change', '#no-size-popup', function(e) {
 				    e.preventDefault();		    
 	 		    if ($('#no-size-popup').is(':checked') == true){
-	 		    	console.log('delegated event');
 	 			      $('.list-radios-secondary input').val('').prop('disabled', true).attr('checked', false);
-			      console.log('This is checked');
 			      $('.list-radios-secondary label').addClass('fadeRadio');
 			   }  else {
 	 		     $('.list-radios-secondary input').val('1').prop('disabled', false);
-				     console.log('unchecked');
 			     $('.list-radios-secondary label').removeClass('fadeRadio');
 			   };
 			});
