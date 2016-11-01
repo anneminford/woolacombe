@@ -1,4 +1,3 @@
-
 function reset_focus() {
 	$("body, html").animate({ 
         scrollTop: $('.intro-inner').offset().top
@@ -229,18 +228,6 @@ function get_results_by_page(page, offers) {
 			   } else {
 			     $('#partysizemax').val('1').prop('disabled', false);
 			   }
-			});
-
-			// overlay search
-			$('body').on('change', '#no-size-popup', function(e) {
-				    e.preventDefault();		    
-	 		    if ($('#no-size-popup').is(':checked') == true){
-	 			      $('.list-radios-secondary input').val('').prop('disabled', true).attr('checked', false);
-			      $('.list-radios-secondary label').addClass('fadeRadio');
-			   }  else {
-	 		     $('.list-radios-secondary input').val('1').prop('disabled', false);
-			     $('.list-radios-secondary label').removeClass('fadeRadio');
-			   };
 			});
 
 			$('.search-by-location-advanced').click(function(e) {

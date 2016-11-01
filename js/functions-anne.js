@@ -1,5 +1,40 @@
 $(document).ready(function() {
 
+	$('body').on('change', '#no-size-popup', function(e) {
+		e.preventDefault();	
+		if ($('#no-size-popup').is(':checked') == true){
+		    $('.list-radios-secondary input').val('').prop('disabled', true).attr('checked', false);
+		    $('.list-radios-secondary label').addClass('fadeRadio');
+		} else {
+			 $('.list-radios-secondary input').val('1').prop('disabled', false);
+				$('.list-radios-secondary label').removeClass('fadeRadio');
+		};
+	});
+
+
+	
+$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+	if(getUrlVar('date')) {
+		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+		$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+	}
+
+	if(getUrlVar('duration')) {
+		$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
+		$('input[name="duration-group"][value="'+getUrlVar('duration')+'"]').attr('data-checked', 'checked');
+	}
+
+	if(getUrlVar('partysizemax')) {
+		$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
+		$('input[name="field-party-size"]').val(getUrlVar('partysizemax'));
+	}
+
+	if(getUrlVar('status')==='invalid') {
+		$('.section-thanks header').hide();
+		$('.section-thanks.error').show();
+		$('.section-thanks.error p span.reason').text(getUrlVar('reason'));
+	}
+
 	// Booking Form add new party member
    	$('.copy-member').click(function(){
    		event.preventDefault();
@@ -406,26 +441,25 @@ $(document).ready(function() {
 				});
 			});
 
-	if(getUrlVar('date')) {
-		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-		$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-	}
+	// if(getUrlVar('date')) {
+	// 	$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+	// 	$('.product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
+	// }
 
-	if(getUrlVar('duration')) {
-		$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
+	// if(getUrlVar('duration')) {
+	// 	$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
+	// 	$('input[name="duration-group"][value="'+getUrlVar('duration')+'"]').attr('data-checked', 'checked');
+	// }
 
-	}
+	// if(getUrlVar('partysizemax')) {
+	// 	$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
+	// 	$('input[name="field-party-size"]').val(getUrlVar('partysizemax'));
+	// }
 
-	if(getUrlVar('partysizemax')) {
-		$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
-		$('.product-overview-body input[name="field-party-size"]').val(getUrlVar('partysizemax'));
-
-	}
-
-	if(getUrlVar('status')==='invalid') {
-		$('.section-thanks header').hide();
-		$('.section-thanks.error').show();
-		$('.section-thanks.error p span.reason').text(getUrlVar('reason'));
-	}
+	// if(getUrlVar('status')==='invalid') {
+	// 	$('.section-thanks header').hide();
+	// 	$('.section-thanks.error').show();
+	// 	$('.section-thanks.error p span.reason').text(getUrlVar('reason'));
+	// }
 
 });
