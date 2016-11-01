@@ -129,6 +129,21 @@ $(document).ready(function() {
 			window.location.href = url;
 		}
     });
+
+        // Advanced search construct url for cottage page
+
+		$('.product-item-content a').each(function(e) {
+			$(this).on("click", function(){
+			var cottageid = ($(this).attr('href') + '?' + 'date=');
+		  	// alert(cottageid);
+		  	var results = $('.form-advanced-search form').serialize();
+	    	var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
+			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+			var url = cottageid + datepicker_date + '&' + results;
+			alert(url);
+		});
+		});
+
     if($('.slider-product').length || $('.section-booking').length ) {
 		$.ajax({ /* We make our ajax call to get the objects from the search back. */
 			url: '//woolacombe.appira.com/index.php?type=get_property&property='+window.location.hash.replace('#',''),
