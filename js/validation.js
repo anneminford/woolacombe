@@ -57,6 +57,7 @@
                 // wrapper: 'li'
 
                  submitHandler: function(form) {
+                  form.submit();
                   $.ajax({
                       url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
                       method: 'GET',
@@ -111,18 +112,18 @@
 // end register validation
 
 
-$('#form').validate({
+// $('#form').validate({
 
-    ... your validation rules come here,
+//     ... your validation rules come here,
 
-    submitHandler: function(form) {
-        $.ajax({
-            url: form.action,
-            type: form.method,
-            data: $(form).serialize(),
-            success: function(response) {
-                $('#answers').html(response);
-            }            
-        });
-    }
-});
+//     submitHandler: function(form) {
+//         $.ajax({
+//             url: form.action,
+//             type: form.method,
+//             data: $(form).serialize(),
+//             success: function(response) {
+//                 $('#answers').html(response);
+//             }            
+//         });
+//     }
+// });

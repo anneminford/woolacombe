@@ -209,12 +209,8 @@ $(document).ready(function() {
 			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 			var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
 			var results = $('.form-advanced-search form').serialize();
-			var cottageid = ('/cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
-			
-			if(~window.location.href.indexOf('preview')) {
-				cottageid = '/preview'+cottageid;
-			}
-
+			var cottageid = ('cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
+			//this needs /cottage to work on ip address
 			window.location.href = cottageid;
 		});
 
@@ -377,6 +373,7 @@ $(document).ready(function() {
 							}
 
 						});
+						console.log('this is my datepicker');
 						if(getUrlVar('date')) {
 							$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
 							$('.product-calendar.cottageDate').datepicker('setDate', new Date(getUrlVar('date')));
