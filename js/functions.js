@@ -1,7 +1,8 @@
+//functions js
+
 function reset_focus() {
 	$("body, html").animate({ 
-            scrollTop: $('.intro-inner').offset().top;
-            console.log('testing');
+        scrollTop: $('.intro-inner').offset().top
     }, 600);
 }
 
@@ -223,13 +224,16 @@ function get_results_by_page(page, offers) {
 			get_results_by_page(1, offers);
 			window.advanced = false;
 
+			if (window.location.search.indexOf('partysizetba') > -1) {
+				$('input#no-size').prop('checked', true);
+				$('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
+			} 
+
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
-			      $('#field-party-size').val('').prop('disabled', true);
-			      console.log('checked');
+			      $('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
 			   } else {
-			     $('#field-party-size').val('1').prop('disabled', false);
-			     console.log('unchecked');
+			     $('#partysizemax').val('1').prop('disabled', false).removeClass('fadeRadio');
 			   }
 			});
 
@@ -280,52 +284,52 @@ function get_results_by_page(page, offers) {
 +'											<p>'+data.brands.WO.teaser+'</p>'
 +'											<ul class="list-icons">';
 											if(data.attributes['Family orientated']) {
-											 dom += '<li> <i class="ico-family-dark"></i> <span>Family Orientated</span> </li>';
+											 dom += '<li class="atest"> <i class="ico-family-dark"></i><div class="tooltip">Family orientated</div></li>';
 											}
 											if(data.attributes['Traditional Cottages']) {
-											 dom += '<li> <i class="ico-traditional-dark"></i> <span>Traditional Cottages</span> </li>';
+											 dom += '<li> <i class="ico-traditional-dark"></i><div class="tooltip">Traditional Cottages</div> </li>';
 											}
 											if(data.attributes['Friday Changeover']) {
-											 dom += '<li> <i class="ico-friday-dark"></i> <span>Friday Changeover</span> </li>';
+											 dom += '<li> <i class="ico-friday-dark"></i><div class="tooltip">Friday Changeover</div> </li>';
 											}
 											if(data.attributes['Walk to the Beach']) {
-											 dom += '<li> <i class="ico-beach-dark"></i> <span>Walk to the Beach</span> </li>';
+											 dom += '<li> <i class="ico-beach-dark"></i><div class="tooltip">Walk to the Beach</div> </li>';
 											}
 											if(data.attributes['BBQ area']) {
-											 dom += '<li> <i class="ico-BBQ-dark"></i> <span>BBQ area</span> </li>';
+											 dom += '<li> <i class="ico-BBQ-dark"></i><div class="tooltip">BBQ area</div> </li>';
 											}
 											if(data.attributes['Tranquil Location']) {
-											 dom += '<li> <i class="ico-tranquil-dark"></i> <span>Tranquil Location</span> </li>';
+											 dom += '<li> <i class="ico-tranquil-dark"></i><div class="tooltip">Tranquil Location</div> </li>';
 											}
 											if(data.attributes['Walk to Amenities']) {
-											 dom += '<li> <i class="ico-amenities-dark"></i> <span>Walk to Amenities</span> </li>';
+											 dom += '<li> <i class="ico-amenities-dark"></i><div class="tooltip">Walk to Amenities</div> </li>';
 											}
 											if(data.attributes['Rural Views']) {
-											 dom += '<li> <i class="ico-rural-dark"></i> <span>Rural Views</span> </li>';
+											 dom += '<li> <i class="ico-rural-dark"></i><div class="tooltip">Rural Views</div> </li>';
 											}
 											if(data.attributes['Saturday Changeover']) {
-											 dom += '<li> <i class="ico-saturday-dark"></i> <span>Saturday Changeover</span> </li>';
+											 dom += '<li> <i class="ico-saturday-dark"></i><div class="tooltip">Saturday Changeover</div> </li>';
 											}
 											if(data.attributes['Pets Welcome']) {
-											 dom += '<li> <i class="ico-pets-dark"></i> <span>Pets Welcome</span> </li>';
+											 dom += '<li> <i class="ico-pets-dark"></i><div class="tooltip">Pets Welcome</div> </li>';
 											}
 											if(data.attributes['Wi-Fi Internet']) {
-											 dom += '<li> <i class="ico-wifi-dark"></i> <span>Wi-Fi Internet</span> </li>';
+											 dom += '<li> <i class="ico-wifi-dark"></i><div class="tooltip">Wi-Fi Internet</div> </li>';
 											}
 											if(data.attributes.Luxurious) {
-											 dom += '<li> <i class="ico-luxury-dark"></i> <span>Luxurious</span> </li>';
+											 dom += '<li> <i class="ico-luxury-dark"></i><div class="tooltip">Luxurious</div> </li>';
 											}
 											if(data.attributes['Sea Views']) {
-											 dom += '<li> <i class="ico-sea-dark"></i> <span>Sea views</span> </li>';
+											 dom += '<li> <i class="ico-sea-dark"></i><div class="tooltip">Sea views</div> </li>';
 											}
 											if(data.attributes['Disabled Access']) {
-											 dom += '<li> <i class="ico-disabled-dark"></i> <span>Disabled Access</span> </li>';
+											 dom += '<li> <i class="ico-disabled-dark"></i><div class="tooltip">Disabled Access</div> </li>';
 											}
 											if(data.attributes.Horses) {
-											 dom += '<li> <i class="ico-horses-dark"></i> <span>Horses</span> </li>';
+											 dom += '<li> <i class="ico-horses-dark"></i><div class="tooltip">Horses</div> </li>';
 											}
 											if(data.attributes['Linen Inclusive']) {
-											 dom += '<li> <i class="ico-linen-dark"></i> <span>Linen Inclusive</span> </li>';
+											 dom += '<li> <i class="ico-linen-dark"></i><div class="tooltip">Linen Inclusive</div> </li>';
 											}
 											dom += '</ul>'
 +'										</div><!-- /.section-entry -->'
@@ -575,17 +579,10 @@ function get_results_by_page(page, offers) {
 				$('.booking-price').text('£0.00');
 				$('.product-overview-foot button').attr('disabled', true);
 				$('.button-orange').text('Contact us for a quote');
-				$('.error').html('Select an available date to see pricings.').show();
+				$('.error').html('Select an available date to see pricing.').show();
 				return false;
 			};
 			
-		    $(".radio input:radio").change(function () {
-		        if ($('.booking-price').text('£0.00')) {
-		            $('.button-orange').text('Contact us for a quote');
-		        }
-    		});
-			
-
 			data.type = 'booking_enquiry';
 
 			$.ajax({
@@ -594,16 +591,17 @@ function get_results_by_page(page, offers) {
 				dataType: 'jsonp',
 				data: data,
 				success: function(data) {
-					// $('.product-overview-foot button').removeAttr('disabled');
+					$('.product-overview-foot button').removeAttr('disabled');
 					$('.error').hide();
 
 					if(data.errorCode) {
 						$('.product-overview-foot button').attr('disabled', true);
-						return $('.error').html(data.errorDescription).show();
-						 $('.button-orange').text('Contact us for a quotes');
-						 $('.booking-price').css('display', 'none');
-					}
-					$('.button-orange').text('Book nows');
+						$('.booking-price').css('display', 'none');
+						$('.button-orange').text('Contact us for a quote');
+						return $('.error').html(data.errorDescription).show().text('Contact us for a quote'); 
+					};
+					$('.button-orange').text('Book now');
+					$('.booking-price').css('display', 'block');
 					$('.booking-price').text('£'+data.price.totalPrice);
 				}
 			});
@@ -684,7 +682,7 @@ function get_results_by_page(page, offers) {
 				},
 				success: function(data) {
 					if(data.errorCode) {
-						return $('#register-form .form-actions .button-green').after('<p class="error">'+data.errorDescription+'</p>');
+						return $('#register-form .form-actions .button-green').after('<p class="error-functions1">'+data.errorDescription+'</p>');
 					}
 
 					$.ajax({
@@ -697,7 +695,7 @@ function get_results_by_page(page, offers) {
 						},
 						success: function(data) {
 							if(data.errorCode) {
-								return $('#register-form .form-actions .button-green').after('<p class="error">'+data.errorDescription+'</p>');
+								return $('#register-form .form-actions .button-green').after('<p class="error-functions2">'+data.errorDescription+'</p>');
 							}
 
 							window.location.href = data.redirect;

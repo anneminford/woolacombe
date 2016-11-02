@@ -1,7 +1,8 @@
+// function js
 function reset_focus() {
 	$("body, html").animate({ 
         scrollTop: $('.intro-inner').offset().top
-    }, 600);
+    }, 500);
 }
 
 function check_facilities(property) {
@@ -88,7 +89,7 @@ function roll_out_properties(properties) {
 
 			icon_html += '</ul>';
 					var html = '<div class="product-item">'
-		+'<div class="product-item-image test">'
+		+'<div class="product-item-image">'
 		+'<a href="/cottage#'+v.id+'"> <img src="'+v.images[0].url+'" height="251" width="290" alt=""> </a> </div>'
 		+'<!-- /.product-item-image -->'
 		+'<div class="product-item-content">'
@@ -667,41 +668,41 @@ function get_results_by_page(page, offers) {
 			})();
 		}
 
-		$('#register-form').submit(function(e) {
-			e.preventDefault();
+		// $('#register-form').submit(function(e) {
+		// 	e.preventDefault();
 
-			$.ajax({
-				url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
-				method: 'GET',
-				dataType: 'jsonp',
-				data: {
-					type: 'add_booking_details',
-					booking: getUrlVar('booking')
-				},
-				success: function(data) {
-					if(data.errorCode) {
-						return $('#register-form .form-actions .button-green').after('<p class="error-x">'+data.errorDescription+'</p>');
-					}
+		// 	$.ajax({
+		// 		url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
+		// 		method: 'GET',
+		// 		dataType: 'jsonp',
+		// 		data: {
+		// 			type: 'add_booking_details',
+		// 			booking: getUrlVar('booking')
+		// 		},
+		// 		success: function(data) {
+		// 			if(data.errorCode) {
+		// 				return $('#register-form .form-actions .button-green').after('<p class="error-function1">'+data.errorDescription+'</p>');
+		// 			}
 
-					$.ajax({
-						url: '//woolacombe.appira.com/index.php',
-						method: 'GET',
-						dataType: 'jsonp',
-						data: {
-							booking: getUrlVar('booking'),
-							type: 'pay_booking'
-						},
-						success: function(data) {
-							if(data.errorCode) {
-								return $('#register-form .form-actions .button-green').after('<p class="error-x">'+data.errorDescription+'</p>');
-							}
+		// 			$.ajax({
+		// 				url: '//woolacombe.appira.com/index.php',
+		// 				method: 'GET',
+		// 				dataType: 'jsonp',
+		// 				data: {
+		// 					booking: getUrlVar('booking'),
+		// 					type: 'pay_booking'
+		// 				},
+		// 				success: function(data) {
+		// 					if(data.errorCode) {
+		// 						return $('#register-form .form-actions .button-green').after('<p class="error-function2">'+data.errorDescription+'</p>');
+		// 					}
 
-							window.location.href = data.redirect;
-						}
-					});
-				}
-			});
-		});
+		// 					window.location.href = data.redirect;
+		// 				}
+		// 			});
+		// 		}
+		// 	});
+		// });
 
 		$('.fbsharelink').click(function(e) {
 			e.preventDefault();

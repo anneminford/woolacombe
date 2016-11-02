@@ -1,35 +1,14 @@
 $(document).ready(function() {
-	$('body').on('change', '#no-size-popup', function(e) {
-		e.preventDefault();	
-		if ($('#no-size-popup').is(':checked') == true){
-		    $('.list-radios-secondary input').val('').prop('disabled', true).attr('checked', false);
-		    $('.list-radios-secondary label').addClass('fadeRadio');
-		} else {
-			 $('.list-radios-secondary input').val('1').prop('disabled', false);
-				$('.list-radios-secondary label').removeClass('fadeRadio');
-		};
+
+	// set initial state on duration field types
+	$("#field-3-days").prop("checked", true);
+
+	// Booking Form back button
+	$('a.back').click(function(){
+		event.preventDefault();
+		parent.history.back();
+		return false;
 	});
-
-	if(getUrlVar('date')) {
-		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-		$('.product-calendar.cottageDate').datepicker('setDate', new Date(getUrlVar('date')));
-	}
-
-	if(getUrlVar('duration')) {
-		$('.form-advanced-search input[name="duration"][value="'+getUrlVar('duration')+'"]').prop('checked', true);
-		$('input[name="duration-group"][value="'+getUrlVar('duration')+'"]').attr('data-checked', 'checked');
-	}
-
-	if(getUrlVar('partysizemax')) {
-		$('.form-advanced-search input[name="partysizemax"]').val(getUrlVar('partysizemax'));
-		$('input[name="field-party-size"]').val(getUrlVar('partysizemax'));
-	}
-
-	if(getUrlVar('status')==='invalid') {
-		$('.section-thanks header').hide();
-		$('.section-thanks.error').show();
-		$('.section-thanks.error p span.reason').text(getUrlVar('reason'));
-	}
 
 	// Booking Form add new party member
    	$('.copy-member').click(function(){
@@ -39,6 +18,12 @@ $(document).ready(function() {
 		$( '.party-addition').each(function( index ) {
 		  	var changeTitle = $( this ).attr('id');
 		  	$(this).find('h4').text('Party Details Member ' + changeTitle);
+		  	var partyIndex = $(this).attr('id') - 1;
+		  	$(this).find('#firstnameparty').attr('name', 'party['+ partyIndex +']'+'[firstName]');
+		  	$(this).find('#titleparty').attr('name', 'party['+ partyIndex +']'+'[title]');
+		  	$(this).find('#surnameparty').attr('name', 'party['+ partyIndex +']'+'[surname]');
+		  	$(this).find('#partyage').attr('name', 'party['+ partyIndex +']'+'[age]');
+		  	$(this).find('#partytype').attr('name', 'party['+ partyIndex +']'+'[type]');
 		});
 		if ($('div#2').length){
 		    $('.remove-member').css('display', 'block');
@@ -54,103 +39,85 @@ $(document).ready(function() {
   			$('.remove-member').css('display', 'none');
 		}
 	});
-	// Contact form validation
-
-  // Initialize form validation on the registration form.
-  // It has the name attribute "registration"
-  $("form[name='registration']").validate({
-    // Specify validation rules
-    rules: {
-      firstname: "required",
-      lastname: "required",
-      surname: "required",
-      email: {
-        required: true,
-        email: true
-      },
-      phone: {
-        required: true,
-        minlength: 6
-      },
-      message: "required"
-    },
-    debug: true,//remove after dev
-    // Specify validation error messages
-    messages: {
-      firstname: "Please enter your firstname",
-      lastname: "Please enter your lastname",
-      phone: {
-        required: "Please provide a phone number",
-        minlength: "Your password must be at least 6 characters long"
-      },
-      email: "Please enter a valid email address",
-      message: "Please enter your message"
-    },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
-    submitHandler: function(form) {
-      form.submit();
-    }
-  });
 
  	// Booking Form validation
-		// function validateDonotSelect(value,element,param)
-	 //    {
-	 //        if(value == param)
-	 //        {
-	 //          return false;
-	 //        }
-	 //        else
-	 //        {
-	 //            return true;
-	 //        }      
-	 //    }
-	 //    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
+	$(function(){
 
-        // $('#register-form').validate({
-        //     rules: {
-        //         title: {
-        //         	required: true,
-        //         	do_not_select:'sel'
-        //         },
-        //         firstname: "required",
-        //         surname: "required",
-        //         email: {
-        //             required: true,
-        //             email: true
-        //         },
-        //         phone: {
-        //         required: true,
-        //         digits: true
-        //         },
-        //         address1: "required",
-        //         address2: "required",
-        //         city: "required",
-        //         postcode:"required",
-        //         county:"required",
-        //         country:"required",
-        //         titleparty: {
-        //         	required: true,
-        //         	do_not_select:'sel'
-        //         },
-        //         firstnameparty:"required",
-        //         surnameparty:"required",
-        //         ageparty: {
-        //         	required:true,
-        //         	do_not_select:'sel'
-        //         },
-        //         typeparty:"required"
-        //         },
-        //          errorPlacement: function(error, element) {   },
-        //          messages: {
-        //         firstname: "Please enter your first name.", 
-        //         // CUSTOMISE THE ERRORS IF NECESSARY
-        //         },
-        //         errorContainer: $('#errorContainer'),
-        //         // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST
-        //         // wrapper: 'li'
+			function validateDonotSelect(value,element,param)
+	    {
+	        if(value == param)
+	        {
+	          return false;
+	        }
+	        else
+	        {
+	            return true;
+	        }      
+	    }
+	    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
 
-        // });
+
+        $('#register-form').validate({
+            rules: {
+                "customer[title]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                "customer[firstName]": "required",
+                "customer[surname]": "required",
+                "customer[email]": {
+                    required: true,
+                    email: true
+                },
+                "customer[phone]": {
+                required: true,
+                digits: true
+                },
+                "customer[addr1]": "required",
+                "customer[addr2]": "required",
+                "customer[town]": "required",
+                "customer[postcode]":"required",
+                "customer[county]":"required",
+                "customer[country]":"required",
+                // "party[][title]": {
+                // 	required: true,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][firstName]":"required",
+                // "party[][surname]":"required",
+                // "party[][age]": {
+                // 	required:true,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][type]":"required"
+                },
+                 errorPlacement: function(error, element) {   },
+                 messages: {
+                // firstname: "Please enter your first name.", CUSTOMISE THE ERRORS IF NECESSARY
+                },
+                errorContainer: $('#errorContainer'),
+               // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST
+                // wrapper: 'li'
+
+        });
+        $("#titleparty").rules("add", {
+         required:true,
+         do_not_select:'sel'
+      	});
+      	$("#surnameparty").rules("add", {
+         required:true,
+      	});
+      	$(".firstnameparty").rules("add", {
+         required:true,
+      	});
+      	$("#partyage").rules("add", {
+         required:true,
+         do_not_select:'sel'
+      	});
+      	$("#partytype").rules("add", {
+         required:true,
+      	});
+	 });
 
 	// populate type field from age
 	$('body').on('change', '.party-addition .ageparty', function() {
@@ -176,10 +143,7 @@ $(document).ready(function() {
 	//$('.sm-link-pinterest').attr('href', $('.sm-link-pinterest').attr('href') + hashremove);
 
 	// Header search href
-	var root = '\/\/' + window.location.host;
-	if(~window.location.href.indexOf('preview')) {
-		root = '//station.locomotive.works/_app/gentle-summer-7034/preview';
-	}
+	var root = 'http:\/\/' + window.location.host;
 	$(".open-search").attr("href", root + '/' + 'search');
 
 	// Overlay basic search construct url for search
@@ -188,35 +152,10 @@ $(document).ready(function() {
 		var results = $('.form-search form').serialize();
     	var dateFormat = $('.calendar').datepicker('option', 'dateFormat');
 		var datepicker_date = $('.calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-		//var datepicker_formatted = datepicker_date.replace(/\//g, '-');
-		var url = '/search-results?date=' + datepicker_date + '&' + results;
-		if(~window.location.href.indexOf('preview')) {
-			window.location.href = '//station.locomotive.works/_app/gentle-summer-7034/preview/'+url;
-		} else {
-			window.location.href = url;
-		}
+		var datepicker_formatted = datepicker_date.replace(/\//g, '-');
+		var url = '/search-results?date=' + datepicker_formatted + '&' + results;
+		window.location.href = url;
     });
-
-        // Advanced search construct url for cottage page
-
-
-		$(document).on('click','.product-item-content a, .product-item-image a', function(e) {			
-			e.preventDefault();
-			var hash = $(this).attr('href').split('#')[1];
-			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-			var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
-			var results = $('.form-advanced-search form').serialize();
-			var cottageid = ('/cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
-			window.location.href = cottageid;
-		});
-		// $(document).on('click', '.product-item-image a', function () {
-		// alert('clicked'); 
-    //stuff
-});
-
-		
-// http://213.187.241.51:3333/cottage#IVY_WO?date=11/02/2016&duration-group=3&field-party-size=1
-
     if($('.slider-product').length || $('.section-booking').length ) {
 		$.ajax({ /* We make our ajax call to get the objects from the search back. */
 			url: '//woolacombe.appira.com/index.php?type=get_property&property='+window.location.hash.replace('#',''),
@@ -264,81 +203,64 @@ $(document).ready(function() {
 						$('.cottage-offer').html(offerHtml);
 					}
 
-					var root = '';
-					if(~window.location.href.indexOf('preview')) {
-						root = '//station.locomotive.works/_app/gentle-summer-7034/preview';
-					}
-
 					$('.cottage-title').text(data.name);
 					$('.breadcrumb-cottage').text(data.name);
 					$('.cottage-town').text(data.address.town);
-					$('#populate-by-location').attr('href', root+'/north-devon-holiday-cottages/'+data.address.town.toLowerCase().replace(/ /g, '-')).text(data.address.town+' Holiday Cottages');
 					$('.cottage-sleeps').text(data.accommodates);
 					$('.cottage-beds').text(data.bedrooms);
 					$('.cottage-teaser').text(data.brands.WO.teaser);
 					$('.cottage-description-full').html(data.brands.WO.description);
 					var cottage_amenity_icon = '<ul class="list-icons">';				
 						if(data.attributes['Family orientated']) {
-						 cottage_amenity_icon += '<li> <i class="ico-family"></i> <div class="tooltip">Family orientated</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-family" title="Family orientated"></i> </li>';
 						}
 						if(data.attributes['Traditional Cottages']) {
-						 cottage_amenity_icon += '<li> <i class="ico-traditional"></i> <div class="tooltip">Traditional Cottages</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-traditional" title="Traditional Cottages"></i> </li>';
 						}
 						if(data.attributes['Friday Changeover']) {
-						 cottage_amenity_icon += '<li> <i class="ico-friday"></i> <div class="tooltip">Friday Changeover</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-friday" title="Friday Changeover"></i> </li>';
 						}
 						if(data.attributes['Walk to the Beach']) {
-						 cottage_amenity_icon += '<li> <i class="ico-beach"></i> <div class="tooltip">Walk to the Beach</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-beach" title="Walk to the Beach"></i> </li>';
 						}
-						if(data.attributes['BBQ area']) {
-						 cottage_amenity_icon += '<li> <i class="ico-BBQ"></i> <div class="tooltip">BBQ area</div></li>';
+						if(data.attributes['BBQ Area']) {
+						 cottage_amenity_icon += '<li> <i class="ico-BBQ" title="BBQ Area"></i> </li>';
 						}
 						if(data.attributes['Tranquil Location']) {
-						 cottage_amenity_icon += '<li> <i class="ico-tranquil"></i> <div class="tooltip">Tranquil Location</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-tranquil" title="Tranquil Location"></i> </li>';
 						}
 						if(data.attributes['Walk to Amenities']) {
-						 cottage_amenity_icon += '<li> <i class="ico-amenities"></i> <div class="tooltip">Walk to Amenities</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-amenities" title="Walk to Amenities"></i> </li>';
 						}
 						if(data.attributes['Rural Views']) {
-						 cottage_amenity_icon += '<li> <i class="ico-rural"></i> <div class="tooltip">Tranquil Location</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-rural" title="Rural Views"></i> </li>';
 						}
 						if(data.attributes['Saturday Changeover']) {
-						 cottage_amenity_icon += '<li> <i class="ico-saturday"></i> <div class="tooltip">Saturday Changeover</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-saturday" title="Saturday Changeover"></i> </li>';
 						}
 						if(data.attributes['Pets Welcome']) {
-						 cottage_amenity_icon += '<li> <i class="ico-pets"></i> <div class="tooltip">Pets Welcome</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-pets" title="Pets Welcome"></i> </li>';
 						}
 						if(data.attributes['Wi-Fi Internet']) {
-						 cottage_amenity_icon += '<li> <i class="ico-wifi"></i> <div class="tooltip">Wi-Fi Internet</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-wifi" title="Wi-Fi Internet"></i> </li>';
 						}
 						if(data.attributes.Luxurious) {
-						 cottage_amenity_icon += '<li> <i class="ico-luxury"></i> <div class="tooltip">Luxurious</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-luxury" title="Luxurious"></i> </li>';
 						}
 						if(data.attributes['Sea Views']) {
-						 cottage_amenity_icon += '<li> <i class="ico-sea"></i> <div class="tooltip">Sea Views</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-sea" title="Sea Views"></i> </li>';
 						}
 						if(data.attributes['Disabled Access']) {
-						 cottage_amenity_icon += '<li> <i class="ico-disabled"></i> <div class="tooltip">Disabled Access</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-disabled" title="Disabled Access"></i> </li>';
 						}
 						if(data.attributes.Horses) {
-						 cottage_amenity_icon += '<li> <i class="ico-horses"></i> <div class="tooltip">Horses</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-horses" title="Horse riding"></i> </li>';
 						}
 						if(data.attributes['Linen Inclusive']) {
-						 cottage_amenity_icon += '<li> <i class="ico-linen"></i> <div class="tooltip">Linen Inclusive</div></li>';
+						 cottage_amenity_icon += '<li> <i class="ico-linen" title="Linen Inclusive"></i> </li>';
 						}
 					cottage_amenity_icon += '</ul>';
 					$('.cottage-icons').append(cottage_amenity_icon);
-
-					function positionTooltips() {
-						$('.section-product .list-icons li .tooltip').each(function() {
-							if($(window).width() < $(this).offset().left+$(this).outerWidth()) {
-								$(this).css('left', -(($(this).offset().left+$(this).outerWidth()) -$(window).width())-25);
-							}
-						});
-					}
-				    $(window).resize(positionTooltips);
-					positionTooltips();
-
 					// Update facilities icon classes to -dark on booking page
 					if ($('.section-booking').length > 0) { 
 					    $('ul.list-icons li i').each(function() {
@@ -351,7 +273,7 @@ $(document).ready(function() {
 					var cottage_image_html = '';
 					$.each(data.images, function(i, image) {
 						//if(i==0){ $('.sm-link-pinterest').attr('href','https://pinterest.com/pin/create/button/?url=http://213.187.241.51%3A3333/cottage%23DUK_WO&media=http%3A//wo.api.carltonsoftware.co.uk/image/normal/1000x750/ny2dbc--dukes_garden_view.jpg&description='); };
-						if(i==0){ $('.sm-link-pinterest').attr('href','//pinterest.com/pin/create/button/?media=' +image.url+ '&description='+data.brands.WO.teaser+'&url='+location.href); };
+						if(i==0){ $('.sm-link-pinterest').attr('href','http://pinterest.com/pin/create/button/?media=' +image.url+ '&description='+data.brands.WO.teaser+'&url='+location.href); };
 						cottage_image_thumbs_html += '<div class="slide-image"><img src="'+image.url+'" height="" width="" alt="'+image.alt+'"></div>';
 						cottage_image_html += '<div class="slide-image"><img src="'+image.url+'" height="" width="" alt="'+image.alt+'"></div>';
 						$('.cottage-image').html('<img src="'+image.url+'" height="" width="" alt="'+image.alt+'">')
@@ -361,28 +283,10 @@ $(document).ready(function() {
 					$('.slider .slides').append(cottage_image_html);
 					$('.slider.slider-product-thumbs .slides').append(cottage_image_thumbs_html);
 
-					// init datepicker
-					if( $('.product-calendar').length ) {
-						$('.product-calendar').datepicker({
-							dayNamesMin: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
-							firstDay: 1,
-							minDate: '+1',
-							defaultDate: '+1',
-							beforeShowDay: function(date){
-								var date_string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-								return [data.calendar[date_string].available];
-							}
-
-						});
-						console.log('this is my datepicker');
-						if(getUrlVar('date')) {
-							$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));
-							$('.product-calendar.cottageDate').datepicker('setDate', new Date(getUrlVar('date')));
-						}
-					}
 
 					// Init Map
 					if ( $('.product-map').length ) {
+						console.log('here');
 						var map;
 						var myLat = $('#product-map').data('lat');
 						var myLng = $('#product-map').data('lng');
@@ -409,23 +313,36 @@ $(document).ready(function() {
 						        //alert("Geocode was not successful for the following reason: " + status);
 						      }
 						    });
+						    console.log('map ok');
 						}
 
 						google.maps.event.addDomListener(window, 'load', initialize);
 						google.maps.event.addDomListener(window, 'resize', initialize);
 						initialize();
 					}
+					// Tabs
+					(function(){
+					    // This class will be added to active tab link 
+					    // and the content container
+					    var activeTabClass = 'current';
+					    
+					    $('.tabs-nav a').on('click', function(event) {
+					        var $tabLink = $(this);
+					        var $targetTab = $($tabLink.attr('href'));
+					 
+					        $tabLink
+					            .parent() // go up to the <li> element
+					            .add($targetTab)
+					            .addClass(activeTabClass)
+					                .siblings()
+					                .removeClass(activeTabClass);
+					        
+					        event.preventDefault();
 
-					$(document).on('click', '.tabs-nav a', function(e) {
-						e.preventDefault();
-						$('.tabs-body > div').hide();
-						$($(this).attr('href')).show();
-						$('.tabs-nav li').removeClass('current');
-						$(this).parents('li').addClass('current');
-
-						if($(this).attr('href') === '#tab-map' && $('.product-map').length) initialize();
-					});
-
+					        initialize();
+					        
+					    });
+					})();
 			}
 		});
 	}
@@ -470,7 +387,7 @@ $(document).ready(function() {
 											+'</ul><!-- /.list-feed-actions -->'
 										+'</div><!-- /.feed-item-content -->'
 									+'</div><!-- /.feed-item -->';
-							if(this.type == 'twitter' && $('.feed-twitter .feed-body .feed-item').length < 4) {
+							if(this.type == 'twitter' && $('.feed-twitter .feed-body .feed-item').length < 3) {
 								$('.feed-twitter .feed-body').append(html);
 								$(".feed-time-image img").attr("src","https://pbs.twimg.com/profile_images/1052205496/woolacombe_20Baggy.jpg");
 							} else if ($('.feed-facebook .feed-body .feed-item').length < 3) {
@@ -482,5 +399,6 @@ $(document).ready(function() {
 						});
 					});
 				});
-			});
-
+			})
+			
+});
