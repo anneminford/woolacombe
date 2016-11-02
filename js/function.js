@@ -222,11 +222,16 @@ function get_results_by_page(page, offers) {
 			get_results_by_page(1, offers);
 			window.advanced = false;
 
+			if (window.location.search.indexOf('partysizetba') > -1) {
+				$('input#no-size').prop('checked', true);
+				$('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
+			} 
+
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
-			      $('#partysizemax').val('').prop('disabled', true);
+			      $('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
 			   } else {
-			     $('#partysizemax').val('1').prop('disabled', false);
+			     $('#partysizemax').val('1').prop('disabled', false).removeClass('fadeRadio');
 			   }
 			});
 
