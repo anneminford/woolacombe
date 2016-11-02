@@ -9,101 +9,127 @@ is_layout: true
 {% include 'header' %}
 {% block 'main' %}
     {% block 'Page Header' %}
-    <div class="intro">
-		<div class="intro-image">
-            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
-			<img src="{{ header_image }}" height="1050" width="1599" alt="">
-		</div><!-- /.intro-image -->
-
-		<div class="intro-content">
-			<div class="container">
-				<div class="intro-inner">
-					<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
-				</div><!-- /.intro-inner -->
-			</div><!-- /.container -->
-		</div><!-- /.intro-content -->
-	</div><!-- /.intro intro-home -->
-    {% endblock %}
-	<div class="main">
-		<div class="breadcrumbs-bar">
-			<div class="container">
-				<div class="breadcrumbs-bar-inner">
-					<div class="breadcrumbs">
-						<a href="/">Home</a>
-						<span>&gt;</span>
-						<a href="#" class="current">Contact Us</a>
-					</div><!-- /.breadcrumbs -->
-
-					<div class="share">
-						<a href="#" class="share-btn">
-							<i class="ico-share"></i>
-						</a>
-						{% include 'socials' %}
-					</div><!-- /.share -->
-				</div><!-- /.breadcrumbs-bar-inner -->
-			</div><!-- /.container -->
-		</div><!-- /.breadcrumbs -->
-
-		<section class="section-contacts">
-			<div class="container">
-				<div class="row">
-					<div class="six columns">
-						<div class="section-body">
-                            <form class="jotform-form" action="https://submit.jotformeu.com/submit/60894448325363/" method="post" name="form_60894448325363" id="60894448325363" accept-charset="utf-8">
-                                <div class="form form-contact">
-                                    <header class="form-head">
-                                        <h2>{% editable_text 'Content Heading', format:raw, rows:1 %}{% endeditable_text %}</h2>
-                                        <p>{% editable_text 'Content' %}{% endeditable_text %}</p>
-                                    </header><!-- /.form-head -->
-
-                                    <input type="hidden" name="formID" value="60894448325363" />
-                                    
-                                    <div class="form-body">
-                                        <div class="form-row">										
-                                            <div class="form-controls">
-                                                <input type="text" class="field" id="input_1" name="q1_firstName" value="" placeholder="First name">
-                                            </div><!-- /.form-controls -->
-                                        </div><!-- /.form-row -->
-
-                                        <div class="form-row">										
-                                            <div class="form-controls">
-                                                <input type="text" class="field" id="input_3" name="q3_surname" value="" placeholder="Surname">
-                                            </div><!-- /.form-controls -->
-                                        </div><!-- /.form-row -->
-
-                                        <div class="form-row">										
-                                            <div class="form-controls">
-                                                <input type="text" class="field" id="input_4" name="q4_phoneNumber" value="" placeholder="Phone number">
-                                            </div><!-- /.form-controls -->
-                                        </div><!-- /.form-row -->
-
-                                        <div class="form-row">										
-                                            <div class="form-controls">
-                                                <input type="text" class="field" id="input_5" name="q5_email" value="" placeholder="Email">
-                                            </div><!-- /.form-controls -->
-                                        </div><!-- /.form-row -->
-
-                                        <div class="form-row">										
-                                            <div class="form-controls">
-                                                <textarea cols="30" rows="10" class="textarea" id="input_6" name="q6_message" placeholder="Please enter message"></textarea>
-                                            </div><!-- /.form-controls -->
-                                        </div><!-- /.form-row -->
-                                    </div><!-- /.form-body -->
-
-                                    <div class="form-actions">
-                                        <button id="input_2" type="submit" class="button-black">Send message</button>
-                                    </div><!-- /.form-actions -->
-                                </div><!-- /.form form-contact -->
-                            </form>
-						</div><!-- /.section-body -->
-					</div><!-- /.six columns -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</section><!-- /.section-contacts -->
-	</div><!-- /.main -->
+<div class="intro">
+  <div class="intro-image"> {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %} <img src="{{ header_image }}" height="1050" width="1599" alt=""> </div>
+  <!-- /.intro-image -->
+  
+  <div class="intro-content">
+    <div class="container">
+      <div class="intro-inner">
+        <h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+      </div>
+      <!-- /.intro-inner --> 
+    </div>
+    <!-- /.container --> 
+  </div>
+  <!-- /.intro-content --> 
+</div>
+<!-- /.intro intro-home --> 
 {% endblock %}
-{% include 'footer' %}
+<div class="main">
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <div class="breadcrumbs-bar-inner">
+        <div class="breadcrumbs"> <a href="/">Home</a> <span>&gt;</span> <a href="#" class="current">Contact Us</a> </div>
+        <!-- /.breadcrumbs -->
+        
+        <div class="share"> <a href="#" class="share-btn"> <i class="ico-share"></i> </a> {% include 'socials' %} </div>
+        <!-- /.share --> 
+      </div>
+      <!-- /.breadcrumbs-bar-inner --> 
+    </div>
+    <!-- /.container --> 
+  </div>
+  <!-- /.breadcrumbs -->
+  
+  <section class="section-contacts">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <div class="section-body">
+        
+        <!-- <div class="container">
+  <h2>Registration</h2>
+  <form action="" name="registration">
 
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="John"/>
 
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Doe"/>
 
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="john@doe.com"/>
 
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"/>
+
+    <button type="submit">Register</button>
+
+  </form>
+</div> -->
+        
+        <form action="" name="registration">
+          <div class="form form-contact">
+            <header class="form-head">
+              <h2>{% editable_text 'Content Heading', format:raw, rows:1 %}{% endeditable_text %}</h2>
+              <p>{% editable_text 'Content' %}{% endeditable_text %}</p>
+            </header>
+            <!-- /.form-head -->
+            
+            <div class="form-row">
+              <div class="form-controls">
+                <input type="text" class="field" id="firstname" name="firstname" value="" placeholder="First name">
+              </div>
+              <!-- /.form-controls --> 
+            </div>
+            <!-- /.form-row -->
+            <div class="form-row">
+              <div class="form-controls">
+                <input type="text" class="field" id="surname" name="surname" value="" placeholder="Surname">
+              </div>
+              <!-- /.form-controls --> 
+            </div>
+            <!-- /.form-row -->
+            <div class="form-row">
+              <div class="form-controls">
+                <input type="text" name="phone" class="field" id="phone" placeholder="Phone number"/>
+              </div>
+              <!-- /.form-controls --> 
+            </div>
+            <!-- /.form-row -->
+            <div class="form-row">
+              <div class="form-controls">
+                <input type="text" class="field" id="email" name="email" value="" placeholder="Email">
+              </div>
+              <!-- /.form-controls --> 
+            </div>
+            <!-- /.form-row -->
+            
+            <div class="form-row">
+              <div class="form-controls">
+                <textarea cols="30" rows="10" class="textarea" id="message" name="message" placeholder="Please enter your message"></textarea>
+              </div>
+              <!-- /.form-controls --> 
+            </div>
+            <!-- /.form-row --> 
+          </div>
+          <!-- /.form-body -->
+          
+          <button type="submit" class="button-black">Send message</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.section-body --> 
+    </div>
+    <!-- /.six columns --> 
+  </div>
+  <!-- /.row --> 
+</div>
+<!-- /.container -->
+</section>
+<!-- /.section-contacts -->
+</div>
+<!-- /.main --> 
+{% endblock %}
+{% include 'footer' %} 

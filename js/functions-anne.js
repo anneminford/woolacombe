@@ -54,6 +54,44 @@ $(document).ready(function() {
   			$('.remove-member').css('display', 'none');
 		}
 	});
+	// Contact form validation
+
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      firstname: "required",
+      lastname: "required",
+      surname: "required",
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true,
+        minlength: 6
+      },
+      message: "required"
+    },
+    debug: true,//remove after dev
+    // Specify validation error messages
+    messages: {
+      firstname: "Please enter your firstname",
+      lastname: "Please enter your lastname",
+      phone: {
+        required: "Please provide a phone number",
+        minlength: "Your password must be at least 6 characters long"
+      },
+      email: "Please enter a valid email address",
+      message: "Please enter your message"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
 
  	// Booking Form validation
 	$(function(){
@@ -107,7 +145,8 @@ $(document).ready(function() {
                 },
                  errorPlacement: function(error, element) {   },
                  messages: {
-                // firstname: "Please enter your first name.", CUSTOMISE THE ERRORS IF NECESSARY
+                firstname: "Please enter your first name.", 
+                // CUSTOMISE THE ERRORS IF NECESSARY
                 },
                 errorContainer: $('#errorContainer'),
                 // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST

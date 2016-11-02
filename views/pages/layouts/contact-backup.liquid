@@ -1,0 +1,197 @@
+---
+title: contact
+slug: contact
+position: 99
+listed: false
+published: false
+is_layout: true
+---
+{% include 'header' %}
+{% block 'main' %}
+    {% block 'Page Header' %}
+    <div class="intro">
+		<div class="intro-image">
+            {% capture header_image %}{% editable_file 'Header Image'%}/images/image-placeholder.jpg{% endeditable_file %}{% endcapture %}
+			<img src="{{ header_image }}" height="1050" width="1599" alt="">
+		</div><!-- /.intro-image -->
+
+		<div class="intro-content">
+			<div class="container">
+				<div class="intro-inner">
+					<h3>{% editable_text 'Page Heading', format:raw, rows:1 %}{% endeditable_text %}</h3>
+				</div><!-- /.intro-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.intro-content -->
+	</div><!-- /.intro intro-home -->
+    {% endblock %}
+	<div class="main">
+		<div class="breadcrumbs-bar">
+			<div class="container">
+				<div class="breadcrumbs-bar-inner">
+					<div class="breadcrumbs">
+						<a href="/">Home</a>
+						<span>&gt;</span>
+						<a href="#" class="current">Contact Us</a>
+					</div><!-- /.breadcrumbs -->
+
+					<div class="share">
+						<a href="#" class="share-btn">
+							<i class="ico-share"></i>
+						</a>
+						{% include 'socials' %}
+					</div><!-- /.share -->
+				</div><!-- /.breadcrumbs-bar-inner -->
+			</div><!-- /.container -->
+		</div><!-- /.breadcrumbs -->
+
+		<section class="section-contacts">
+			<div class="container">
+				<div class="row">
+					<div class="six columns">
+						<div class="section-body">
+                        <form class="cmxform" id="#register-form" method="get" action="">
+  <fieldset>
+    <legend>Please provide your name, email address (won't be published) and a comment</legend>
+    <p>
+      <label for="cname">Name (required, at least 2 characters)</label>
+      <input id="cname" name="name" minlength="2" type="text" required>
+    </p>
+    <p>
+      <label for="cemail">E-Mail (required)</label>
+      <input id="cemail" type="email" name="email" required>
+    </p>
+    <p>
+      <label for="curl">URL (optional)</label>
+      <input id="curl" type="url" name="url">
+    </p>
+    <p>
+      <label for="ccomment">Your comment (required)</label>
+      <textarea id="ccomment" name="comment" required></textarea>
+    </p>
+    <p>
+      <input class="submit" type="submit" value="Submit">
+    </p>
+  </fieldset>
+</form>
+<!-- <div class="container">
+  <h2>Registration</h2>
+  <form action="" name="registration">
+
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="John"/>
+
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Doe"/>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="john@doe.com"/>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"/>
+
+    <button type="submit">Register</button>
+
+  </form>
+</div> -->
+                            <form class="cmxform" id="#contact-form" method="get" action="">
+                                <div class="form form-contact">
+                                    <header class="form-head">
+                                        <h2>{% editable_text 'Content Heading', format:raw, rows:1 %}{% endeditable_text %}</h2>
+                                        <p>{% editable_text 'Content' %}{% endeditable_text %}</p>
+                                    </header><!-- /.form-head -->
+
+                                    <input type="hidden" name="formID" value="60894448325363" />
+                                    
+                                    <div class="form-body">
+                                        <div class="form-row">										
+                                            <div class="form-controls">
+                                                <input type="text" class="field" id="firstname" name="firstname" value="" placeholder="First name">
+                                            </div><!-- /.form-controls -->
+                                        </div><!-- /.form-row -->
+
+                                        <div class="form-row">										
+                                            <div class="form-controls">
+                                                <input type="text" class="field" id="surname" name="surnamee" value="" placeholder="Surname">
+                                            </div><!-- /.form-controls -->
+                                        </div><!-- /.form-row -->
+
+                                        <div class="form-row">										
+                                            <div class="form-controls">
+                                                <input type="text" class="field" id="phonenumber" name="phonenumber" value="" placeholder="Phone number">
+                                            </div><!-- /.form-controls -->
+                                        </div><!-- /.form-row -->
+
+                                        <div class="form-row">										
+                                            <div class="form-controls">
+                                                <input type="text" class="field" id="email" name="email" value="" placeholder="Email">
+                                            </div><!-- /.form-controls -->
+                                        </div><!-- /.form-row -->
+
+                                        <div class="form-row">										
+                                            <div class="form-controls">
+                                                <textarea cols="30" rows="10" class="textarea" id="message" name="message" placeholder="Please enter message"></textarea>
+                                            </div><!-- /.form-controls -->
+                                        </div><!-- /.form-row -->
+                                    </div><!-- /.form-body -->
+
+                                    <div class="form-actions">
+                                        <button id="input_2" type="submit" class="button-black">Send message</button>
+                                    </div><!-- /.form-actions -->
+                                </div><!-- /.form form-contact -->
+                            </form>
+                            <script>
+$("#contact-form").validate();
+
+// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("#contact-form").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      firstname: "required",
+      lastname: "required",
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      phone: {
+        required: true,
+        minlength: 5
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      firstname: "Please enter your firstname",
+      lastname: "Please enter your lastname",
+      phone: {
+        required: "Please provide a phone number",
+        minlength: "Your phone must be at least 5 characters long"
+      },
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>
+						</div><!-- /.section-body -->
+					</div><!-- /.six columns -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.section-contacts -->
+	</div><!-- /.main -->
+{% endblock %}
+{% include 'footer' %}
+
+
+
+
