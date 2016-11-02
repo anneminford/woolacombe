@@ -94,63 +94,66 @@ $(document).ready(function() {
   });
 
  	// Booking Form validation
-		// function validateDonotSelect(value,element,param)
-	 //    {
-	 //        if(value == param)
-	 //        {
-	 //          return false;
-	 //        }
-	 //        else
-	 //        {
-	 //            return true;
-	 //        }      
-	 //    }
-	 //    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
+	$(function(){
 
-        // $('#register-form').validate({
-        //     rules: {
-        //         title: {
-        //         	required: true,
-        //         	do_not_select:'sel'
-        //         },
-        //         firstname: "required",
-        //         surname: "required",
-        //         email: {
-        //             required: true,
-        //             email: true
-        //         },
-        //         phone: {
-        //         required: true,
-        //         digits: true
-        //         },
-        //         address1: "required",
-        //         address2: "required",
-        //         city: "required",
-        //         postcode:"required",
-        //         county:"required",
-        //         country:"required",
-        //         titleparty: {
-        //         	required: true,
-        //         	do_not_select:'sel'
-        //         },
-        //         firstnameparty:"required",
-        //         surnameparty:"required",
-        //         ageparty: {
-        //         	required:true,
-        //         	do_not_select:'sel'
-        //         },
-        //         typeparty:"required"
-        //         },
-        //          errorPlacement: function(error, element) {   },
-        //          messages: {
-        //         firstname: "Please enter your first name.", 
-        //         // CUSTOMISE THE ERRORS IF NECESSARY
-        //         },
-        //         errorContainer: $('#errorContainer'),
-        //         // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST
-        //         // wrapper: 'li'
+			function validateDonotSelect(value,element,param)
+	    {
+	        if(value == param)
+	        {
+	          return false;
+	        }
+	        else
+	        {
+	            return true;
+	        }      
+	    }
+	    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
 
-        // });
+        $('#register-form').validate({
+            rules: {
+                title: {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                firstname: "required",
+                surname: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                required: true,
+                digits: true
+                },
+                address1: "required",
+                address2: "required",
+                city: "required",
+                postcode:"required",
+                county:"required",
+                country:"required",
+                titleparty: {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                firstnameparty:"required",
+                surnameparty:"required",
+                ageparty: {
+                	required:true,
+                	do_not_select:'sel'
+                },
+                typeparty:"required"
+                },
+                 errorPlacement: function(error, element) {   },
+                 messages: {
+                firstname: "Please enter your first name.", 
+                // CUSTOMISE THE ERRORS IF NECESSARY
+                },
+                errorContainer: $('#errorContainer'),
+                // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST
+                // wrapper: 'li'
+
+        });
+	 });
 
 	// populate type field from age
 	$('body').on('change', '.party-addition .ageparty', function() {
@@ -206,16 +209,12 @@ $(document).ready(function() {
 			var datepicker_date = $('.product-calendar').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 			var dateFormat = $('.product-calendar').datepicker('option', 'dateFormat');
 			var results = $('.form-advanced-search form').serialize();
-			var cottageid = ('/cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
+			var cottageid = ('cottage?' + 'date=' + datepicker_date + '&' + results + '&#' + hash);
+			//this needs /cottage to work on ip address
 			window.location.href = cottageid;
 		});
-		// $(document).on('click', '.product-item-image a', function () {
-		// alert('clicked'); 
-    //stuff
-});
 
-		
-// http://213.187.241.51:3333/cottage#IVY_WO?date=11/02/2016&duration-group=3&field-party-size=1
+	
 
     if($('.slider-product').length || $('.section-booking').length ) {
 		$.ajax({ /* We make our ajax call to get the objects from the search back. */
@@ -484,3 +483,7 @@ $(document).ready(function() {
 				});
 			});
 
+if ($('.hasDatepicker').length > 0) { 
+    console.log('date picker loaded')
+}
+});
