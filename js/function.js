@@ -709,13 +709,23 @@ function get_results_by_page(page, offers) {
                 	do_not_select:'sel'
                 },
                 "customer[adultcount]": {
-                	required: true,
-                	do_not_select:'sel'
-                },
-                "customer[childcount]": {
-                	required: true,
-                	do_not_select:'sel'
-                },
+                	do_not_select:'sel',
+                	required:  function() {
+                 if ($("#no-size-register").is(":checked")) {
+                     return false;
+                 }
+                 else {
+                     return true;
+                 }
+          }
+            },
+
+
+
+                // "customer[childcount]": {
+                // 	required: false,
+                // 	do_not_select:'sel'
+                // },
                 "customer[firstName]": "required",
                 "customer[surname]": "required",
                 "customer[email]": {
@@ -732,17 +742,7 @@ function get_results_by_page(page, offers) {
                 "customer[postcode]":"required",
                 "customer[county]":"required",
                 "customer[country]":"required",
-                "party[][title]": {
-                	required: check_facilities,
-                	do_not_select:'sel'
-                },
-                "party[][firstName]":"required",
-                "party[][surname]":"required",
-                "party[][age]": {
-                	required:false,
-                	do_not_select:'sel'
-                },
-                "party[][type]":"required"
+                
                 },
                  errorPlacement: function(error, element) {   },
                  debug: true,//remove after dev
@@ -754,8 +754,7 @@ function get_results_by_page(page, offers) {
                 // wrapper: 'li'
 
                  submitHandler: function(form) {
-                  // form.submit();
-                  // e.preventDefault();
+
                   $.ajax({
                       url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
                       method: 'GET',
@@ -790,23 +789,7 @@ function get_results_by_page(page, offers) {
                 }
 
         });
-        $("#titleparty").rules("add", {
-         required:false,
-         do_not_select:'sel'
-      	});
-      	$("#surnameparty").rules("add", {
-         required:false,
-      	});
-      	$(".firstnameparty").rules("add", {
-         required:false,
-      	});
-      	$("#partyage").rules("add", {
-         required:false,
-         do_not_select:'sel'
-      	});
-      	$("#partytype").rules("add", {
-         required:false,
-      	});
+
 // end register validation
 
 		// $('#register-form').submit(function(e) {

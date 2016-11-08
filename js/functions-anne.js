@@ -9,11 +9,13 @@ $(document).ready(function() {
 				$('.list-radios-secondary label').removeClass('fadeRadio');
 		};
 	});
-	$('body').on('change','#no-size-register',function(e) {
+	$('body').on('change','#nosizeregister',function(e) {
 		e.preventDefault();	
-		if ($('#no-size-register').is(':checked') == true){
+		if ($('#nosizeregister').is(':checked') == true){
+			console.log('checked');
 			      $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio');
 			   } else {
+			   	console.log('not checked');
 			     $('#adultcount, #childcount').prop('disabled', false).removeClass('fadeRadio');
 			   }
 	});
