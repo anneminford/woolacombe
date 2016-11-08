@@ -701,15 +701,24 @@ function get_results_by_page(page, offers) {
 	    }
 	    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
 
-
+//TAKE VALIDATION OUT
         $('#register-form').validate({
             rules: {
                 "customer[title]": {
                 	required: true,
                 	do_not_select:'sel'
                 },
+                "customer[adultcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                "customer[childcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
                 "customer[firstName]": "required",
                 "customer[surname]": "required",
+                "customer[emailx]": "required",
                 "customer[email]": {
                     required: true,
                     email: true
@@ -724,17 +733,24 @@ function get_results_by_page(page, offers) {
                 "customer[postcode]":"required",
                 "customer[county]":"required",
                 "customer[country]":"required",
-                "party[][title]": {
-                	required: true,
-                	do_not_select:'sel'
-                },
-                "party[][firstName]":"required",
-                "party[][surname]":"required",
-                "party[][age]": {
-                	required:true,
-                	do_not_select:'sel'
-                },
-                "party[][type]":"required"
+      //           "adultcount": {
+      //   depends: function(element) {
+      //     return $("#no-size-register").is(":checked");
+      //   }
+      // },
+      // "customer[adultcount]":"required",
+ 
+                // "party[][title]": {
+                // 	required: check_facilities,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][firstName]":"required",
+                // "party[][surname]":"required",
+                // "party[][age]": {
+                // 	required:false,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][type]":"required"
                 },
                  errorPlacement: function(error, element) {   },
                  debug: true,//remove after dev
@@ -746,7 +762,6 @@ function get_results_by_page(page, offers) {
                 // wrapper: 'li'
 
                  submitHandler: function(form) {
-                  form.submit();
                   $.ajax({
                       url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
                       method: 'GET',
@@ -778,62 +793,11 @@ function get_results_by_page(page, offers) {
                         });
                       }
                     });
+                  // form.submit();
                 }
 
         });
-        $("#titleparty").rules("add", {
-         required:true,
-         do_not_select:'sel'
-      	});
-      	$("#surnameparty").rules("add", {
-         required:true,
-      	});
-      	$(".firstnameparty").rules("add", {
-         required:true,
-      	});
-      	$("#partyage").rules("add", {
-         required:true,
-         do_not_select:'sel'
-      	});
-      	$("#partytype").rules("add", {
-         required:true,
-      	});
-// end register validation
 
-		// $('#register-form').submit(function(e) {
-		// 	e.preventDefault();
-		// 	$.ajax({
-		// 		url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
-		// 		method: 'GET',
-		// 		dataType: 'jsonp',
-		// 		data: {
-		// 			type: 'add_booking_details',
-		// 			booking: getUrlVar('booking')
-		// 		},
-		// 		success: function(data) {
-		// 			if(data.errorCode) {
-		// 				return $('#register-form .form-actions .button-green').after('<p class="error-function1">'+data.errorDescription+'</p>');
-		// 			}
-
-		// 			$.ajax({
-		// 				url: '//woolacombe.appira.com/index.php',
-		// 				method: 'GET',
-		// 				dataType: 'jsonp',
-		// 				data: {
-		// 					booking: getUrlVar('booking'),
-		// 					type: 'pay_booking'
-		// 				},
-		// 				success: function(data) {
-		// 					if(data.errorCode) {
-		// 						return $('#register-form .form-actions .button-green').after('<p class="error-function2">'+data.errorDescription+'</p>');
-		// 					}
-
-		// 					window.location.href = data.redirect;
-		// 				}
-		// 			});
-		// 		}
-		// 	});
-		// });
 
 		$('.fbsharelink').click(function(e) {
 			e.preventDefault();

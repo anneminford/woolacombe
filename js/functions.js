@@ -1,7 +1,8 @@
+// function js tuesday
 function reset_focus() {
 	$("body, html").animate({ 
-            scrollTop: $('.intro-inner').offset().top 
-    }, 600);
+        scrollTop: $('.intro-inner').offset().top
+    }, 500);
 }
 
 function check_facilities(property) {
@@ -26,10 +27,6 @@ function roll_out_properties(properties) {
 	/* Loop through the data, generating a HTML template using data from the object (named v in this case) */
 	$('.search-results').fadeOut(function() {
 		$('.search-results .product-item').remove();
-
-		if(properties.length) {
-
-
 		$.each(properties, function(i, v) {
 			if(window.advanced) {	
 				window.all_facilities = true;
@@ -92,7 +89,7 @@ function roll_out_properties(properties) {
 
 			icon_html += '</ul>';
 					var html = '<div class="product-item">'
-		+'<div class="product-item-image test">'
+		+'<div class="product-item-image">'
 		+'<a href="/cottage#'+v.id+'"> <img src="'+v.images[0].url+'" height="251" width="290" alt=""> </a> </div>'
 		+'<!-- /.product-item-image -->'
 		+'<div class="product-item-content">'
@@ -109,9 +106,6 @@ function roll_out_properties(properties) {
 		});
 		reset_focus();
 		$('.search-results').fadeIn();
-		} else {
-			$('.search-results').css('display','block').prepend('<h4>No results found</h4');
-		};
 	});
 } 	
 
@@ -228,30 +222,20 @@ function get_results_by_page(page, offers) {
 
 			get_results_by_page(1, offers);
 			window.advanced = false;
-			// search results page advanced search
+
+			if (window.location.search.indexOf('partysizetba') > -1) {
+				$('input#no-size').prop('checked', true);
+				$('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
+			} 
+
 			$('#no-size').change(function(){
 			    if ($('#no-size').is(':checked') == true){
-			      $('#field-party-size').val('').prop('disabled', true);
-			      console.log('checked');
+			      $('#partysizemax').val('').prop('disabled', true).addClass('fadeRadio');
 			   } else {
-			     $('#field-party-size').val('1').prop('disabled', false);
-			     console.log('unchecked');
+			     $('#partysizemax').val('1').prop('disabled', false).removeClass('fadeRadio');
 			   }
 			});
-			// overlay search
-			$( "body" ).on( "change", "#no-size-popup", function(e) {
-			    e.preventDefault();
-			    console.log('delegated event');
-			    if ($('#no-size-popup').is(':checked') == true){
-			      $('.list-radios-secondary input').val('').prop('disabled', true);
-			      console.log('This is checked');
-			      $('.list-radios-secondary label').addClass('fadeRadio');
-			   }  else {
-			     $('.list-radios-secondary input').val('1').prop('disabled', false);
-			     console.log('unchecked');
-			     $('.list-radios-secondary label').removeClass('fadeRadio');
-			   };
-			});
+
 
 			$('.search-by-location-advanced').click(function(e) {
 				e.preventDefault();
@@ -300,52 +284,52 @@ function get_results_by_page(page, offers) {
 +'											<p>'+data.brands.WO.teaser+'</p>'
 +'											<ul class="list-icons">';
 											if(data.attributes['Family orientated']) {
-											 dom += '<li> <i class="ico-family-dark"></i> <span>Family Orientated</span> </li>';
+											 dom += '<li class="atest"> <i class="ico-family-dark"></i><div class="tooltip">Family orientated</div></li>';
 											}
 											if(data.attributes['Traditional Cottages']) {
-											 dom += '<li> <i class="ico-traditional-dark"></i> <span>Traditional Cottages</span> </li>';
+											 dom += '<li> <i class="ico-traditional-dark"></i><div class="tooltip">Traditional Cottages</div> </li>';
 											}
 											if(data.attributes['Friday Changeover']) {
-											 dom += '<li> <i class="ico-friday-dark"></i> <span>Friday Changeover</span> </li>';
+											 dom += '<li> <i class="ico-friday-dark"></i><div class="tooltip">Friday Changeover</div> </li>';
 											}
 											if(data.attributes['Walk to the Beach']) {
-											 dom += '<li> <i class="ico-beach-dark"></i> <span>Walk to the Beach</span> </li>';
+											 dom += '<li> <i class="ico-beach-dark"></i><div class="tooltip">Walk to the Beach</div> </li>';
 											}
 											if(data.attributes['BBQ area']) {
-											 dom += '<li> <i class="ico-BBQ-dark"></i> <span>BBQ area</span> </li>';
+											 dom += '<li> <i class="ico-BBQ-dark"></i><div class="tooltip">BBQ area</div> </li>';
 											}
 											if(data.attributes['Tranquil Location']) {
-											 dom += '<li> <i class="ico-tranquil-dark"></i> <span>Tranquil Location</span> </li>';
+											 dom += '<li> <i class="ico-tranquil-dark"></i><div class="tooltip">Tranquil Location</div> </li>';
 											}
 											if(data.attributes['Walk to Amenities']) {
-											 dom += '<li> <i class="ico-amenities-dark"></i> <span>Walk to Amenities</span> </li>';
+											 dom += '<li> <i class="ico-amenities-dark"></i><div class="tooltip">Walk to Amenities</div> </li>';
 											}
 											if(data.attributes['Rural Views']) {
-											 dom += '<li> <i class="ico-rural-dark"></i> <span>Rural Views</span> </li>';
+											 dom += '<li> <i class="ico-rural-dark"></i><div class="tooltip">Rural Views</div> </li>';
 											}
 											if(data.attributes['Saturday Changeover']) {
-											 dom += '<li> <i class="ico-saturday-dark"></i> <span>Saturday Changeover</span> </li>';
+											 dom += '<li> <i class="ico-saturday-dark"></i><div class="tooltip">Saturday Changeover</div> </li>';
 											}
 											if(data.attributes['Pets Welcome']) {
-											 dom += '<li> <i class="ico-pets-dark"></i> <span>Pets Welcome</span> </li>';
+											 dom += '<li> <i class="ico-pets-dark"></i><div class="tooltip">Pets Welcome</div> </li>';
 											}
 											if(data.attributes['Wi-Fi Internet']) {
-											 dom += '<li> <i class="ico-wifi-dark"></i> <span>Wi-Fi Internet</span> </li>';
+											 dom += '<li> <i class="ico-wifi-dark"></i><div class="tooltip">Wi-Fi Internet</div> </li>';
 											}
 											if(data.attributes.Luxurious) {
-											 dom += '<li> <i class="ico-luxury-dark"></i> <span>Luxurious</span> </li>';
+											 dom += '<li> <i class="ico-luxury-dark"></i><div class="tooltip">Luxurious</div> </li>';
 											}
 											if(data.attributes['Sea Views']) {
-											 dom += '<li> <i class="ico-sea-dark"></i> <span>Sea views</span> </li>';
+											 dom += '<li> <i class="ico-sea-dark"></i><div class="tooltip">Sea views</div> </li>';
 											}
 											if(data.attributes['Disabled Access']) {
-											 dom += '<li> <i class="ico-disabled-dark"></i> <span>Disabled Access</span> </li>';
+											 dom += '<li> <i class="ico-disabled-dark"></i><div class="tooltip">Disabled Access</div> </li>';
 											}
 											if(data.attributes.Horses) {
-											 dom += '<li> <i class="ico-horses-dark"></i> <span>Horses</span> </li>';
+											 dom += '<li> <i class="ico-horses-dark"></i><div class="tooltip">Horses</div> </li>';
 											}
 											if(data.attributes['Linen Inclusive']) {
-											 dom += '<li> <i class="ico-linen-dark"></i> <span>Linen Inclusive</span> </li>';
+											 dom += '<li> <i class="ico-linen-dark"></i><div class="tooltip">Linen Inclusive</div> </li>';
 											}
 											dom += '</ul>'
 +'										</div><!-- /.section-entry -->'
@@ -595,23 +579,10 @@ function get_results_by_page(page, offers) {
 				$('.booking-price').text('£0.00');
 				$('.product-overview-foot button').attr('disabled', true);
 				$('.button-orange').text('Contact us for a quote');
-				// $('span.booking-price').css('display', 'none');
 				$('.error').html('Select an available date to see pricing.').show();
 				return false;
-				
 			};
-
 			
-		    $(".radio input:radio").change(function () {
-		        if ($('.booking-price').text('£0.00')) {
-		            $('.button-orange').text('Contact us for a quote');
-		            // $('span.booking-price').css('display', 'none');
-		        } else {
-		        	// $('span.booking-price').css('display', 'block');
-		        };
-    		});
-			
-
 			data.type = 'booking_enquiry';
 
 			$.ajax({
@@ -625,9 +596,12 @@ function get_results_by_page(page, offers) {
 
 					if(data.errorCode) {
 						$('.product-overview-foot button').attr('disabled', true);
-						return $('.error').html(data.errorDescription).show();
-					}
+						$('.booking-price').css('display', 'none');
+						$('.button-orange').text('Contact us for a quote');
+						return $('.error').html(data.errorDescription).show().text('Contact us for a quote'); 
+					};
 					$('.button-orange').text('Book now');
+					$('.booking-price').css('display', 'block');
 					$('.booking-price').text('£'+data.price.totalPrice);
 				}
 			});
@@ -683,6 +657,25 @@ function get_results_by_page(page, offers) {
 						booking: getUrlVar('booking')
 					},
 					success: function(data) {
+						
+						var extras = (data.extras);
+						
+						$.each(extras, function(i, extra) {
+								var extradescription = extra.description;
+								var extraprice = extra.price;
+								var extracode = extra.code;
+								var extra_html = '';
+								extra_html +=''
+								+'<div class="six columns">'
+								+'<div class="extras">'
+								+'<input type="checkbox" name="extra['+extra.code+']" id="'+extra.code+'" value="1"></input>'
+								+'<label for="'+extra.code+'"></label>'
+								+'<h6>'+extra.description+' - £'+extra.price+'<h6>'
+								+'</div>'
+								+'</div>'
+							$('.available-extras').append(extra_html);
+							// $('.test').append(extra.description)
+						});
 						if(data.price) $('.total span').html('£'+data.price.totalPrice);
 						if(data.fromDate && data.toDate) {
 							$('.date span').html(data.fromDate+' to '+data.toDate);
@@ -694,42 +687,153 @@ function get_results_by_page(page, offers) {
 				});
 			})();
 		}
+// Booking Form validation
+// Booking Form validation
+		function validateDonotSelect(value,element,param)
+	    {
+	        if(value == param)
+	        {
+	          return false;
+	        }
+	        else
+	        {
+	            return true;
+	        }      
+	    }
+	    $.validator.addMethod("do_not_select",validateDonotSelect,"Please select an option");
 
-		$('#register-form').submit(function(e) {
-			e.preventDefault();
+//TAKE VALIDATION OUT
+        $('#register-form').validate({
+            rules: {
+                "customer[title]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                "customer[adultcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                "customer[childcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
+                "customer[firstName]": "required",
+                "customer[surname]": "required",
+                "customer[emailx]": "required",
+                "customer[email]": {
+                    required: true,
+                    email: true
+                },
+                "customer[phone]": {
+                required: true,
+                digits: true
+                },
+                "customer[addr1]": "required",
+                "customer[addr2]": "required",
+                "customer[town]": "required",
+                "customer[postcode]":"required",
+                "customer[county]":"required",
+                "customer[country]":"required",
+      //           "adultcount": {
+      //   depends: function(element) {
+      //     return $("#no-size-register").is(":checked");
+      //   }
+      // },
+      // "customer[adultcount]":"required",
+ 
+                // "party[][title]": {
+                // 	required: check_facilities,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][firstName]":"required",
+                // "party[][surname]":"required",
+                // "party[][age]": {
+                // 	required:false,
+                // 	do_not_select:'sel'
+                // },
+                // "party[][type]":"required"
+                },
+                 errorPlacement: function(error, element) {   },
+                 debug: true,//remove after dev
+                 messages: {
+                // firstname: "Please enter your first name.", CUSTOMISE THE ERRORS IF NECESSARY
+                },
+                errorContainer: $('#errorContainer'),
+               // errorLabelContainer: $('#errorContainer ul'), SHOW THE INDIVIDUAL ERRORS IN LIST
+                // wrapper: 'li'
 
-			$.ajax({
-				url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
-				method: 'GET',
-				dataType: 'jsonp',
-				data: {
-					type: 'add_booking_details',
-					booking: getUrlVar('booking')
-				},
-				success: function(data) {
-					if(data.errorCode) {
-						return $('#register-form .form-actions .button-green').after('<p class="error">'+data.errorDescription+'</p>');
-					}
+                 submitHandler: function(form) {
+                  $.ajax({
+                      url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
+                      method: 'GET',
+                      dataType: 'jsonp',
+                      data: {
+                        type: 'add_booking_details',
+                        booking: getUrlVar('booking')
+                      },
+                      success: function(data) {
+                        if(data.errorCode) {
+                          return $('#register-form .form-actions .button-green').after('<p class="error-function1">'+data.errorDescription+'</p>');
+                        }
 
-					$.ajax({
-						url: '//woolacombe.appira.com/index.php',
-						method: 'GET',
-						dataType: 'jsonp',
-						data: {
-							booking: getUrlVar('booking'),
-							type: 'pay_booking'
-						},
-						success: function(data) {
-							if(data.errorCode) {
-								return $('#register-form .form-actions .button-green').after('<p class="error">'+data.errorDescription+'</p>');
-							}
+                        $.ajax({
+                          url: '//woolacombe.appira.com/index.php',
+                          method: 'GET',
+                          dataType: 'jsonp',
+                          data: {
+                            booking: getUrlVar('booking'),
+                            type: 'pay_booking'
+                          },
+                          success: function(data) {
+                            if(data.errorCode) {
+                              return $('#register-form .form-actions .button-green').after('<p class="error-function2">'+data.errorDescription+'</p>');
+                            }
 
-							window.location.href = data.redirect;
-						}
-					});
-				}
-			});
-		});
+                            window.location.href = data.redirect;
+                          }
+                        });
+                      }
+                    });
+                  // form.submit();
+                }
+
+        });
+// end register validation
+
+		// $('#register-form').submit(function(e) {
+		// 	e.preventDefault();
+		// 	$.ajax({
+		// 		url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
+		// 		method: 'GET',
+		// 		dataType: 'jsonp',
+		// 		data: {
+		// 			type: 'add_booking_details',
+		// 			booking: getUrlVar('booking')
+		// 		},
+		// 		success: function(data) {
+		// 			if(data.errorCode) {
+		// 				return $('#register-form .form-actions .button-green').after('<p class="error-function1">'+data.errorDescription+'</p>');
+		// 			}
+
+		// 			$.ajax({
+		// 				url: '//woolacombe.appira.com/index.php',
+		// 				method: 'GET',
+		// 				dataType: 'jsonp',
+		// 				data: {
+		// 					booking: getUrlVar('booking'),
+		// 					type: 'pay_booking'
+		// 				},
+		// 				success: function(data) {
+		// 					if(data.errorCode) {
+		// 						return $('#register-form .form-actions .button-green').after('<p class="error-function2">'+data.errorDescription+'</p>');
+		// 					}
+
+		// 					window.location.href = data.redirect;
+		// 				}
+		// 			});
+		// 		}
+		// 	});
+		// });
 
 		$('.fbsharelink').click(function(e) {
 			e.preventDefault();
