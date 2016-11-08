@@ -1,0 +1,38 @@
+					success: function(data) {
+						var extra_html = '<div class="six columns">';
+						var extras = (data.extras);
+						console.log(extras);
+											$.each(extras, function(i, extra) {
+								extra_html += ''
+								+'<div class="extras">'
+								+'<input type="checkbox" name="extra['+extra.code+']" id="'+extra.code+'" value="1">'
+		                        +'<label for="'+extra.code+'"></label>'
+								+'<h6 class="">'+extra.description+'</h6>'
+								+'</div><!-- /.extras -->'							
+							extra_html += '</div>';
+							$('.available-extras').append(extra_html);
+						});
+						if(data.price) $('.total span').html('£'+data.price.totalPrice);
+						if(data.fromDate && data.toDate) {
+							$('.date span').html(data.fromDate+' to '+data.toDate);
+							if($('.duration').length) $('.duration span').html(Math.round((new Date(data.toDate)-new Date(data.fromDate))/(1000*60*60*24)));
+						} else {
+							$('.date').hide();
+						}
+					}
+
+
+	$.each(extras, function(i, extra) {
+								var extradescription = extra.description;
+								var extraprice = extra.price;
+								var extracode = extra.code
+							console.log(extra.description);
+							extra_html += ''
+							+'<div class="extras">'
+							
+							extra_html += '</div>';
+							// $('.available-extras').append(extradescription + extraprice);
+							$('.available-extras').append(extra_html + extradescription + extraprice + extracode);
+							$('.test').append(extra_html)
+						});
+
