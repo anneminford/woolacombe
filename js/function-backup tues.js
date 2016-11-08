@@ -725,13 +725,13 @@ function get_results_by_page(page, offers) {
                 "customer[county]":"required",
                 "customer[country]":"required",
                 "party[][title]": {
-                	required: check_facilities,
+                	required: true,
                 	do_not_select:'sel'
                 },
                 "party[][firstName]":"required",
                 "party[][surname]":"required",
                 "party[][age]": {
-                	required:false,
+                	required:true,
                 	do_not_select:'sel'
                 },
                 "party[][type]":"required"
@@ -746,8 +746,7 @@ function get_results_by_page(page, offers) {
                 // wrapper: 'li'
 
                  submitHandler: function(form) {
-                  // form.submit();
-                  // e.preventDefault();
+                  form.submit();
                   $.ajax({
                       url: '//woolacombe.appira.com/index.php?'+$(this).serialize(),
                       method: 'GET',
@@ -783,21 +782,21 @@ function get_results_by_page(page, offers) {
 
         });
         $("#titleparty").rules("add", {
-         required:false,
+         required:true,
          do_not_select:'sel'
       	});
       	$("#surnameparty").rules("add", {
-         required:false,
+         required:true,
       	});
       	$(".firstnameparty").rules("add", {
-         required:false,
+         required:true,
       	});
       	$("#partyage").rules("add", {
-         required:false,
+         required:true,
          do_not_select:'sel'
       	});
       	$("#partytype").rules("add", {
-         required:false,
+         required:true,
       	});
 // end register validation
 
