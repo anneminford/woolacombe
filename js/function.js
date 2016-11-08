@@ -236,6 +236,25 @@ function get_results_by_page(page, offers) {
 			   }
 			});
 
+
+			// $(document).on('change','#no-size-register',function() {
+			//     if ($('#no-size-register').is(':checked') == true){
+			//       $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio');
+			//    } else {
+			//      $('#adultcount, #childcount').prop('disabled', false).removeClass('fadeRadio');
+			//    }
+			// });
+
+		   // $(document).on('change','#no-size-register',function() {
+			    // if ($('#no-size-register').is(':checked') == true){
+			      $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio');
+			//    } else {
+			//      $('#adultcount, #childcount').prop('disabled', false).removeClass('fadeRadio');
+			//    }
+			// });
+
+
+
 			$('.search-by-location-advanced').click(function(e) {
 				e.preventDefault();
 				var params = '';

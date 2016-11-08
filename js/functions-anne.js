@@ -9,6 +9,14 @@ $(document).ready(function() {
 				$('.list-radios-secondary label').removeClass('fadeRadio');
 		};
 	});
+	$('body').on('change','#no-size-register',function(e) {
+		e.preventDefault();	
+		if ($('#no-size-register').is(':checked') == true){
+			      $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio');
+			   } else {
+			     $('#adultcount, #childcount').prop('disabled', false).removeClass('fadeRadio');
+			   }
+	});
 
 	if(getUrlVar('date')) {
 		$('.form-advanced-search .product-calendar').datepicker('setDate', new Date(getUrlVar('date')));

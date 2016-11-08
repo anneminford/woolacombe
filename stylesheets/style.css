@@ -1027,6 +1027,11 @@ select.field.error {border:2px solid red;}
 	border:2px solid #000;
 }
 
+label.no-size {
+	height: 20px;
+	width:20px;
+}
+
 .no-size label:after {
 	opacity: 0.2;
 	content: '';

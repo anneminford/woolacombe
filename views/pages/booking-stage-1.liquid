@@ -19,301 +19,291 @@ editable_elements:
 {% endblock %}
 <div class="main"><!--.main ok-->
   <section class="section-booking section-booking-stage1"><!--section booking-->
-  <div class="container"><!--container-->
-    <div class="section-inner"><!--section inner-->
-
-
-      <header class="section-head">
-        <div class="row">
-          <div class="twelve columns">
-            <h3>Booking - <span>Step 1</span></h3>
-            <a href="#" class="back" onClick="history.back();return false;">&lt; Return &amp; Cancel Booking</a> </div>
-          <!-- /.twelve columns --> 
-        </div>
-        <!-- /.row --> 
-      </header>
-      <!-- /.section-head -->
-      
-      <div class="section-body">
-        <ol class="list-booking-steps">
-          <li class="current">Your details</li>
-          <li>Payment details</li>
-          <li>Confirmation</li>
-        </ol>
-        <!-- /.list-booking-steps -->
+    <div class="container"><!--container-->
+      <div class="section-inner"><!--section inner-->
         
-        <section class="section-booking-inner">
         <header class="section-head">
-          <h4>Your booking</h4>
+          <div class="row">
+            <div class="twelve columns">
+              <h3>Booking - <span>Step 1</span></h3>
+              <a href="#" class="back" onClick="history.back();return false;">&lt; Return &amp; Cancel Booking</a> </div>
+            <!-- /.twelve columns --> 
+          </div>
+          <!-- /.row --> 
         </header>
         <!-- /.section-head -->
         
         <div class="section-body">
-          <div class="row">
-            <div class="four columns">
-              <section class="section-booking-details">
-                <div class="cottage-image"></div>
-                <h4 class="cottage-title"></h4>
-                <h6 class="cottage-town"></h6>
-                Sleeps: <span class="cottage-sleeps"></span>, Bedrooms: <span class="cottage-beds"></span>
-                <div class="cottage-icons"></div>
-                <!-- /.list-icons -->
-                
-                <p class="total"> Total: <span></span> </p>
-                <!-- /.total --> 
-                <img src="{{ 'sage-pay.png' | theme_image_url }}"  height="58" width="100" alt="Secured by Sage Pay" class="test"> </section>
-              <!-- /.section-booking-details --> 
-            </div>
-            <!-- /.four columns -->
+          <ol class="list-booking-steps">
+            <li class="current">Your details</li>
+            <li>Payment details</li>
+            <li>Confirmation</li>
+          </ol>
+          <!-- /.list-booking-steps -->
+          
+          <section class="section-booking-inner">
+            <header class="section-head">
+              <h4>Your booking</h4>
+            </header>
+            <!-- /.section-head -->
             
-            <div class="eight columns">
-              <div class="form form-details">
-                <form action="?" method="post" id="register-form">
-                  <div class="form-body">
-
-
-form stuff goes in here
-<!-- START YOUR DETAILS -->
-
-                    <section class="form-section">
-                      <div id="errorContainer">Please review the required form fields below:</div>
-                      <header class="form-section-head">
-                        <div class="row">
-                          <div class="twelve columns">
-                            <h4>Your details</h4>
+            <div class="section-body">
+              <div class="row">
+                <div class="four columns">
+                  <section class="section-booking-details">
+                    <div class="cottage-image"></div>
+                    <h4 class="cottage-title"></h4>
+                    <h6 class="cottage-town"></h6>
+                    Sleeps: <span class="cottage-sleeps"></span>, Bedrooms: <span class="cottage-beds"></span>
+                    <div class="cottage-icons"></div>
+                    <!-- /.list-icons -->
+                    
+                    <p class="total"> Total: <span></span> </p>
+                    <!-- /.total --> 
+                    <img src="{{ 'sage-pay.png' | theme_image_url }}"  height="58" width="100" alt="Secured by Sage Pay" class="test"> </section>
+                  <!-- /.section-booking-details --> 
+                </div>
+                <!-- /.four columns -->
+                
+                <div class="eight columns">
+                  <div class="form form-details">
+                    <form action="?" method="post" id="register-form">
+                      <div class="form-body"> form stuff goes in here 
+                        <!-- START YOUR DETAILS -->
+                        
+                        <section class="form-section">
+                          <div id="errorContainer">Please review the required form fields below:</div>
+                          <header class="form-section-head">
+                            <div class="row">
+                              <div class="twelve columns">
+                                <h4>Your details</h4>
+                              </div>
+                              <!-- /.twelve columns --> 
+                            </div>
+                            <!-- /.row --> 
+                          </header>
+                          <!-- /.form-section-head -->
+                          <div class="form-section-body">
+                            <div class="row">
+                              <div class="six columns">
+                                <label for="title" class="form-label">Title:</label>
+                                <div class="form-controls">
+                                  <select name="customer[title]" id="title" class="field" tabindex="1">
+                                    <option value="sel" class="sel">Please select</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Master">Master</option>
+                                  </select>
+                                </div>
+                                
+                                <!-- /.form-controls --> 
+                              </div>
+                              <!-- /.six columns --> 
+                            </div>
+                            <div class="row">
+                              <div class="six columns">
+                                <label for="firstname" class="form-label">First name:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[firstName]" id="firstname" class="field" tabindex="2">
+                                </div>
+                                <label for="address1" class="form-label">Address line 1:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[addr1]" id="address1" class="field" tabindex="4">
+                                </div>
+                                <label for="city" class="form-label">Town/City:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[town]" id="city" class="field" tabindex="6">
+                                </div>
+                                <label for="postcode" class="form-label">Postcode:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[postcode]" id="postcode" class="field" tabindex="8">
+                                </div>
+                                <label for="phone" class="form-label">Phone number:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[phone]" id="phone" class="field" tabindex="10">
+                                </div>
+                                <!-- /.form-controls --> 
+                              </div>
+                              <!-- /.six columns -->
+                              
+                              <div class="six columns">
+                                <label for="surname" class="form-label">Surname:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[surname]" id="surname" class="field" tabindex="3">
+                                </div>
+                                <label for="address2" class="form-label">Address line 2:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[addr2]" id="address2" class="field" tabindex="5">
+                                </div>
+                                <label for="county" class="form-label">County:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[county]" id="county" class="field" tabindex="7">
+                                </div>
+                                <label for="country" class="form-label">Country:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[country]" id="country" class="field" tabindex="9">
+                                </div>
+                                <label for="email" class="form-label">Email:</label>
+                                <div class="form-controls">
+                                  <input type="text" name="customer[email]" id="email" class="field" tabindex="11">
+                                </div>
+                                <!-- /.form-controls --> 
+                              </div>
+                              <!-- /.six columns --> 
+                            </div>
+                            <!-- /.row --> 
+                            
                           </div>
-                          <!-- /.twelve columns --> 
-                        </div>
-                        <!-- /.row --> 
-                      </header>
-                      <!-- /.form-section-head -->                     
-                      <div class="form-section-body">
-                        <div class="row">
-                          <div class="six columns">
-                            <label for="title" class="form-label">Title:</label>
-                            <div class="form-controls">
-                              <select name="customer[title]" id="title" class="field" tabindex="1">
-                                <option value="sel" class="sel">Please select</option>
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Ms">Ms</option>
-                                <option value="Miss">Miss</option>
-                                <option value="Master">Master</option>
-                              </select>
+                          <!-- /.form-section-body --> 
+                        </section>
+                        
+                        <!--END YOUR DETAILS--> 
+                        
+                        <!--START PARTY DETAILS-->
+                        <section class="form-section">
+                          <header class="form-section-head">
+                            <div class="row">
+                              <div class="twelve columns">
+                                <h4>Party Details</h4>
+                              </div>
+                              <!-- /.twelve columns --> 
+                            </div>
+                            <!-- /.row --> 
+                          </header>
+                          <div class="form-section-body">
+                            <div class="row">
+                              <div class="six columns">
+                                <label for="adultscount" class="form-label">Number of adults:</label>
+                                <select name="adultcount" id="adultcount" class="field" tabindex="">
+                                  <option value="sel" class="sel">Please select</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10+</option>
+                                </select>
+                              </div>
+                              <!--\.six columns-->
+                              
+                              <div class="six columns">
+                                <label for="childcount" class="form-label">Number of children:</label>
+                                <select name="childcount" id="childcount" class="field" tabindex="">
+                                  <option value="sel" class="sel">Please select</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10+</option>
+                                </select>
+                              </div>
+                              <!--\.six columns--> 
+                              
+                            </div>
+                            <!--\.row-->
+                            
+                            <div class="row">
+                              <div class="six columns">
+                                <label for="" class="form-label">Party size not confirmed:</label>
+                                <div class="extras">
+                                  <input type="checkbox" name="partysizetba" id="no-size-register" value="1">
+                                  <label for="no-size-register"></label>
+                                </div>
+                              </div>
+                              <!--\.six columns--> 
+                            </div>
+                            <!-- /.row --> 
+                          </div>
+                          <!--\.form-section-body--> 
+                        </section>
+                        
+                        <!--END PARTY DETAILS--> 
+                        
+                        <!--START EXTRAS -->
+                        <section class="form-section">
+                          <header class="form-section-head">
+                            <div class="row">
+                              <div class="twelve columns">
+                                <h4>Available Extras</h4>
+                              </div>
+                              <!-- /.twelve columns --> 
+                            </div>
+                            <!-- /.row --> 
+                          </header>
+                          <div class="form-section-body">
+                            <div class="form-controls available-extras">
+                              <div class="row"></div>
                             </div>
                             
                             <!-- /.form-controls --> 
                           </div>
-                          <!-- /.six columns --> 
-                        </div>
-
-
-
-                        <div class="row">
-                          <div class="six columns">
-                            <label for="firstname" class="form-label">First name:</label>
+                          <!-- /.form-section-body --> 
+                        </section>
+                        <!--FINISH EXTRAS --> 
+                        
+                        <!--START ADDITIONAL -->
+                        <section class="form-section">
+                          <header class="form-section-head">
+                            <h4>Additional information</h4>
+                          </header>
+                          <!-- /.form-section-head -->
+                          
+                          <div class="form-section-body">
                             <div class="form-controls">
-                              <input type="text" name="customer[firstName]" id="firstname" class="field" tabindex="2">
-                            </div>
-                            <label for="address1" class="form-label">Address line 1:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[addr1]" id="address1" class="field" tabindex="4">
-                            </div>
-                            <label for="city" class="form-label">Town/City:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[town]" id="city" class="field" tabindex="6">
-                            </div>
-                            <label for="postcode" class="form-label">Postcode:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[postcode]" id="postcode" class="field" tabindex="8">
-                            </div>
-                            <label for="phone" class="form-label">Phone number:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[phone]" id="phone" class="field" tabindex="10">
+                              <textarea cols="30" rows="10" class="textarea" name="additional_info"></textarea>
                             </div>
                             <!-- /.form-controls --> 
                           </div>
-                          <!-- /.six columns -->
+                          <!-- /.form-section-body --> 
                           
-                          <div class="six columns">
-                            <label for="surname" class="form-label">Surname:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[surname]" id="surname" class="field" tabindex="3">
-                            </div>
-                            <label for="address2" class="form-label">Address line 2:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[addr2]" id="address2" class="field" tabindex="5">
-                            </div>
-                            <label for="county" class="form-label">County:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[county]" id="county" class="field" tabindex="7">
-                            </div>
-                            <label for="country" class="form-label">Country:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[country]" id="country" class="field" tabindex="9">
-                            </div>
-                            <label for="email" class="form-label">Email:</label>
-                            <div class="form-controls">
-                              <input type="text" name="customer[email]" id="email" class="field" tabindex="11">
-                            </div>
-                            <!-- /.form-controls --> 
-                          </div>
-                          <!-- /.six columns --> 
-                        </div>
-                        <!-- /.row --> 
+                        </section>
+                        <!-- /.form-section --> 
+                        
+                        <!--END ADDITIONAL --> 
                         
                       </div>
-                      <!-- /.form-section-body --> 
-                    </section>
-
-<!--END YOUR DETAILS-->
-
-<!--START PARTY DETAILS-->
-                    <section class="form-section">
-                      <header class="form-section-head">
-                        <div class="row">
-                          <div class="twelve columns">
-                            <h4>Party Details</h4>
-                          </div>
-                          <!-- /.twelve columns --> 
-                        </div>
-                        <!-- /.row --> 
-                      </header>
-                      <div class="form-section-body">
-                        <div class="row">
-                          <div class="six columns">
-                            <label for="adultscount" class="form-label">Number of adults:</label>
-                            <select name="adultcount" id="adultcount" class="field" tabindex="">
-                              <option value="sel" class="sel">Please select</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10+</option>
-                            </select>
-                          </div><!--\.six columns-->
-                          
-                          
-                          <div class="six columns">
-                            <label for="adultscount" class="form-label">Number of children:</label>
-                            <select name="childcount" id="childcount" class="field" tabindex="">
-                              <option value="sel" class="sel">Please select</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10+</option>
-                            </select>
-                          </div> <!--\.six columns-->
-                          
-                        </div><!--\.row-->
-                        
-                        <div class="row">
-                          <div class="six columns">
-                            <h6 class="inline popupLabel">Party size not confirmed</h6>
-                            <div class="no-size popupLabel">
-                              <input type="checkbox" name="partysizetba" id="no-size-popup" value="1">
-                              <label for="no-size-popup"></label>
-                            </div>
-                          </div>
-                          <!--\.six columns--> 
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!--\.form-section-body--> 
-                    </section>
-
-                    <!--END PARTY DETAILS-->
-
- <!--START EXTRAS -->
- <section class="form-section">
-                    <header class="form-section-head">
-                      <div class="row">
-                        <div class="twelve columns">
-                          <h4>Available Extras</h4>
-                        </div>
-                        <!-- /.twelve columns --> 
-                      </div>
-                      <!-- /.row --> 
-                    </header>
-                    <div class="form-section-body">
-                      <div class="form-controls available-extras">
-                        <div class="row"></div>
-                      </div>
+                      <!-- /.form-body -->
                       
-                      <!-- /.form-controls --> 
-                    </div>
-                    <!-- /.form-section-body -->
-                    </section>
- <!--FINISH EXTRAS -->
-
-
-
-
-
-                  <!--START ADDITIONAL -->
- <section class="form-section">
-                    <header class="form-section-head">
-                      <h4>Additional information</h4>
-                    </header>
-                    <!-- /.form-section-head -->
-                    
-                    <div class="form-section-body">
-                      <div class="form-controls">
-                        <textarea cols="30" rows="10" class="textarea" name="additional_info"></textarea>
+                      <div class="form-actions"> <a href="#" class="to-property-page" onClick="history.back();return false;"> <i class="ico-triangle-left-dark"></i> <span>Back to property page</span> </a>
+                        <button type="submit" class="button button-green">Continue to next step</button>
                       </div>
-                      <!-- /.form-controls --> 
-                    </div>
-                    <!-- /.form-section-body -->
-                    
-                    </section>
-                    <!-- /.form-section --> 
-
-                    <!--END ADDITIONAL -->
-
-
-
-
+                      <!-- /.form-actions -->
+                    </form>
                   </div>
-                  <!-- /.form-body -->
-                  
-                  <div class="form-actions"> <a href="#" class="to-property-page" onClick="history.back();return false;"> <i class="ico-triangle-left-dark"></i> <span>Back to property page</span> </a>
-                    <button type="submit" class="button button-green">Continue to next step</button>
-                  </div>
-                  <!-- /.form-actions -->
-                </form>
+                  <!-- /.form form-details --> 
+                </div>
+                <!-- /.eight columns --> 
               </div>
-              <!-- /.form form-details --> 
+              <!-- /.row --> 
             </div>
-            <!-- /.eight columns --> 
-          </div>
-          <!-- /.row --> 
+            <!-- /.section-body --> 
+          </section>
+          <!-- /.section-booking --> 
+          
         </div>
-        <!-- /.section-body -->
-        </section>
-        <!-- /.section-booking --> 
-
-
-
-
-      </div>section body
-      <!-- /.section-body --> 
-    </div>section inner
-    <!-- /.section-inner --> 
-  </div>container
-  <!-- /.container -->
-  </section>ok
+        section body 
+        <!-- /.section-body --> 
+      </div>
+      section inner 
+      <!-- /.section-inner --> 
+    </div>
+    container 
+    <!-- /.container --> 
+  </section>
+  ok 
   <!-- /.section-booking section-booking-stage1 --> 
-</div>main
+</div>
+main 
 <!-- /.main --> 
 {% endblock %}
