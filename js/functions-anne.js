@@ -12,10 +12,10 @@ $(document).ready(function() {
 	$('body').on('change','#nosizeregister',function(e) {
 		e.preventDefault();	
 		if ($('#nosizeregister').is(':checked') == true){
-			console.log('checked');
-			      $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio');
+			// console.log('checked');
+			      $('#adultcount, #childcount').prop('disabled', true).addClass('fadeRadio').removeClass('error');
 			   } else {
-			   	console.log('not checked');
+			   	// console.log('not checked');
 			     $('#adultcount, #childcount').prop('disabled', false).removeClass('fadeRadio');
 			   }
 	});

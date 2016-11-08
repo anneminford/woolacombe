@@ -708,24 +708,17 @@ function get_results_by_page(page, offers) {
                 	required: true,
                 	do_not_select:'sel'
                 },
-                "customer[adultcount]": {
-                	do_not_select:'sel',
-                	required:  function() {
-                 if ($("#no-size-register").is(":checked")) {
-                     return false;
-                 }
-                 else {
-                     return true;
-                 }
-          }
-            },
+    
+// adultcount and childcount become none required if .error class is removed. see line 16 functions-anne
+				"customer[adultcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
 
-
-
-                // "customer[childcount]": {
-                // 	required: false,
-                // 	do_not_select:'sel'
-                // },
+                "customer[childcount]": {
+                	required: true,
+                	do_not_select:'sel'
+                },
                 "customer[firstName]": "required",
                 "customer[surname]": "required",
                 "customer[email]": {
